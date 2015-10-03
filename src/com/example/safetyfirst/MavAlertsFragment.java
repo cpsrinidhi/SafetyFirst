@@ -8,6 +8,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import javax.crypto.NullCipher;
 
@@ -31,6 +33,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -38,44 +42,42 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MavAlertsFragment extends Fragment {
-
-	HttpClient httpClient;
-	HttpPost httppost;
-	HttpResponse response;
-	HttpEntity entity;
-	String status, result, uname, pasw, resp;
-	InputStream isr;
-	JSONArray jArray;
-	TextView txt_Error;
-	InputStream res = null;
-	JSONArray jsonArray;
-
-	HashMap<String, String> map;
-	ArrayList<HashMap<String, String>> arrayList;
-
-	String id, time_stamp, subject, notification;
-	private static final String ID = "u_id";
-	private static final String TIME_STAMP = "time_stamp";
-	private static final String SUBJECT = "subject";
-	private static final String NOTIFICATION = "notification";
-
-	String[] values = new String[] { "India", "java", "c++", "Ad.Java",
-			"Linux", "Unix", "India", "java", "c++", "Ad.Java", "Linux",
-			"Unix", "India", "java", "c++", "Ad.Java", "Linux", "Unix",
-			"India", "java", "c++", "Ad.Java", "Linux", "Unix" };
-	ListView lv;
-
+public class MavAlertsFragment extends Fragment implements OnItemClickListener{
+	String [] values;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.activity_tab_mavalerts, container,
 				false);
 
-		UserValidation validates = new UserValidation();
-		validates.execute(uname, pasw);
+		final ListView listview = (ListView) v.findViewById(R.id.listViewNotifications);
 
-		perform(v);
+		LinkToOmega omegaData = new LinkToOmega();
+		try {
+			values = omegaData.execute().get();
+		} catch (InterruptedException e) {
+			Log.e("MavAlertsFragment - ",
+					"Error in InterruptedException - " + e.toString());
+		} catch (ExecutionException e) {
+			Log.e("MavAlertsFragment - ",
+					"Error in ExecutionException - " + e.toString());
+		}
+
+		final ArrayList<String> list = new ArrayList<String>();
+		for (int i = 0; i < values.length; ++i) {
+			String [] sub_time_stamp = values[i].split(";");
+			String subject = sub_time_stamp[2];
+			String time_stamp = sub_time_stamp[1];
+			list.add(subject + " " + time_stamp);
+			Log.i("MavAlertsFragment - ", "Added data to list " + subject + " " + time_stamp);
+		}
+//		final StableArrayAdapter adapter = new StableArrayAdapter(this,
+//				android.R.layout.simple_list_item_1, list);
+		final StableArrayAdapter adapter = new StableArrayAdapter(getActivity(), 
+				android.R.layout.simple_list_item_1, list);
+		listview.setAdapter(adapter);
+		listview.setOnItemClickListener(this);
+		
 		return v;
 
 		// return (RelativeLayout) inflater.inflate(
@@ -83,123 +85,114 @@ public class MavAlertsFragment extends Fragment {
 
 	}
 
-	private class UserValidation extends AsyncTask<String, String, String> {
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		final String item = (String) parent.getItemAtPosition(position);
+		Toast.makeText(getActivity(), item, Toast.LENGTH_LONG).show();
+		
+		Intent i = new Intent(getActivity(), DetailsOfNotificationActivity.class);
+		startActivity(i);
+//
+//		String dummyData = "Bread, Great Value Bread from Walmart. Available till October 4, 112 UTA Boulevard ERB 112 Arlington TX 76011, 1234567890";
+//		String[] sendData = dummyData.split(",");
+//		Intent i = new Intent(MavAlertsFragment.this,
+//				DetailsCharityPostActivity.class);
+//		i.putExtra("textOmegaHeader", sendData[0]);
+//		i.putExtra("textOmegaDescription", sendData[1]);
+//		i.putExtra("textOmegaAddress", sendData[2]);
+//		i.putExtra("textOmegaPhoneNumber", sendData[3]);
+//		startActivity(i);
+	}
 
-		@Override
-		protected String doInBackground(String... params) {
-			JSONArray jsonArray = null;
-			String username = params[0];
-			String pasword = params[1];
-			// TODO Auto-generated method stub
-			try {
+	private class StableArrayAdapter extends ArrayAdapter<String> {
 
-				httpClient = new DefaultHttpClient();
-				/*
-				 * httppost = new HttpPost(
-				 * "http://192.168.0.13/verify_password_local.php?" + params);
-				 */
-				httppost = new HttpPost(
-						"http://omega.uta.edu/~sxc3409/postNotification.php?");
-				// httppost = new
-				// HttpPost("http://omega.uta.edu/~sxk7162/db_mysql_o.php?");
-				System.out.println("httpPost is done");
-				response = httpClient.execute(httppost);
-				System.out.println(response);
-				entity = response.getEntity();
-				if (entity != null) {
-					isr = entity.getContent();
-					System.out.println("byte - " + isr.available());
-				}
-			} catch (UnsupportedEncodingException e) {
-				Log.e("log_tag", " Error in UnsupportedEncodingException - "
-						+ e.toString());
-			} catch (ClientProtocolException e) {
-				Log.e("log_tag",
-						" Error in ClientProtocolException - " + e.toString());
-			} catch (IOException e) {
-				Log.e("log_tag", " Error in IOException - " + e.toString());
-			} catch (Exception e) {
-				Log.e("log_tag", " Error in Connection" + e.toString());
+		HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
+
+		public StableArrayAdapter(Context context, int textViewResourceId,
+				List<String> objects) {
+			super(context, textViewResourceId, objects);
+			Log.i("MavAlertsFragment - ", "Inside StableArrayAdapter constructor");
+			for (int i = 0; i < objects.size(); ++i) {
+				mIdMap.put(objects.get(i), i);
 			}
-
-			try {
-				BufferedReader reader = new BufferedReader(
-						new InputStreamReader(isr, "iso-8859-1"), 8);
-				StringBuilder sb = new StringBuilder();
-				String line = null;
-				while ((line = reader.readLine()) != null) {
-					sb.append(line);
-				}
-				isr.close();
-
-				result = sb.toString();
-				System.out.println("result from ISR : " + result);
-			} catch (Exception e) {
-				Log.e("log_tag", "Error converting result " + e.toString());
-			}
-
-			return result;
 		}
 
 		@Override
-		protected void onPostExecute(String result) {
-			// TODO Auto-generated method stub
-			arrayList = new ArrayList<HashMap<String, String>>();
+		public long getItemId(int position) {
+			String item = getItem(position);
+			return mIdMap.get(item);
+		}
 
-			super.onPostExecute(result);
-			System.out.println("Printing the result " + result);
-
-			try {
-				jsonArray = new JSONArray(result);
-			} catch (JSONException | NullPointerException e) {
-				Log.e("log_tag", "Error parsing data " + e.toString());
-			}
-
-			try {
-				for (int i = 0; i < jsonArray.length(); i++) {
-					System.out.println("inside for");
-					JSONObject jsonObject = jsonArray.getJSONObject(i);
-					id = jsonObject.getString("ID");
-					System.out.println("ID=" + id);
-					time_stamp = jsonObject.getString("time_stamp");
-					System.out.println("time=" + time_stamp);
-					subject = jsonObject.getString("subject");
-					System.out.println("sub=" + subject);
-					notification = jsonObject.getString("notification");
-					System.out.println("notif=" + notification);
-					map = new HashMap<String, String>();
-
-					map.put("subject", subject);
-					map.put("timestamp", time_stamp);
-					for (String key : map.keySet()) {
-						System.out.println(key + " " + map.get(key));
-					}
-
-					for (HashMap.Entry<String, String> entry : map.entrySet()) {
-						String key = entry.getKey().toString();
-						String value = entry.getValue();
-						System.out.println("key, " + key + " value " + value);
-					}
-
-					arrayList.add(map);
-				}
-			} catch (JSONException e) {
-				Log.e("log_tag", "JSONException Error parsing data in object "
-						+ e.toString());
-			} catch (NullPointerException e) {
-				Log.e("log_tag",
-						"NullPointerException Error parsing data in object "
-								+ e.toString());
-			}
-
+		@Override
+		public boolean hasStableIds() {
+			return true;
 		}
 
 	}
 
-	public void perform(View v) {
-		lv = (ListView) v.findViewById(R.id.listViewNotifications);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-				android.R.layout.simple_list_item_1, values);
-		lv.setAdapter(adapter);
+	private class LinkToOmega extends AsyncTask<String, String, String[]> {
+		HttpClient httpClient;
+		HttpResponse httpResponse;
+		HttpPost httpPost;
+		HttpEntity httpEntity;
+		InputStream isr;
+		BufferedReader bReader;
+		String line;
+		String data[];
+
+		@Override
+		protected String[] doInBackground(String... params) {
+			// Create Http request and response objects to connect to Omega
+			try {
+				httpClient = new DefaultHttpClient();
+				Log.i("MavAlertsFragment - ", "Created httpClient");
+
+				httpPost = new HttpPost(
+						"http://omega.uta.edu/~sxc3409/postNotification.php");
+				Log.i("MavAlertsFragment - ", "Created httpPost to omega");
+
+				httpResponse = httpClient.execute(httpPost);
+				Log.i("MavAlertsFragment - ", "Created httpResponse");
+
+				httpEntity = httpResponse.getEntity();
+				Log.i("MavAlertsFragment - ", "Created httpEntity");
+				if (httpEntity != null) {
+					isr = httpEntity.getContent();
+					Log.i("MavAlertsFragment - ", "Availability of isr "
+							+ isr.available());
+				}
+			} catch (ClientProtocolException e) {
+				Log.e("MavAlertsFragment - ",
+						"Error in ClientProtocolException - " + e.toString());
+			} catch (IOException e) {
+				Log.e("MavAlertsFragment - ", "Error in IOException - "
+						+ e.toString());
+			} catch (Exception e) {
+				Log.e("MavAlertsFragment - ", "Error in Connection - "
+						+ e.toString());
+			}
+
+			// Convert the data in InputStream to String
+			try {
+				bReader = new BufferedReader(new InputStreamReader(isr), 8);
+				line = null;
+				data = new String[] { " " };
+				while ((line = bReader.readLine()) != null) {
+					data = line.split("<br>");
+					Log.i("MavAlertsFragment - ", "Data from omega "
+							+ line);
+				}
+				for (int i = 0; i < data.length; i++) {
+					Log.i("MavAlertsFragment - ",
+							"Data from omega converted to String [] " + data[i]);
+				}
+				return data;
+			} catch (IOException e) {
+				Log.e("MavAlertsFragment - ",
+						"Error in ISR to String conversion - " + e.toString());
+				return null;
+			}
+		}
 	}
 }

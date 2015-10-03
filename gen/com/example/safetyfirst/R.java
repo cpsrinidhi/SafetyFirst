@@ -30,40 +30,40 @@ public final class R {
     }
     public static final class id {
         public static final int action_settings=0x7f09001d;
-        public static final int buttonForgotPassword=0x7f09000b;
-        public static final int buttonLogin=0x7f09000a;
+        public static final int buttonForgotPassword=0x7f09000d;
+        public static final int buttonLogin=0x7f09000c;
         public static final int buttonRegister=0x7f090016;
-        public static final int buttonResendPassword=0x7f090003;
-        public static final int buttonSignUp=0x7f090009;
-        public static final int editEnterRegisteredId=0x7f090001;
+        public static final int buttonResendPassword=0x7f090005;
+        public static final int buttonSignUp=0x7f09000b;
+        public static final int editEnterRegisteredId=0x7f090003;
         public static final int editTextFirstName=0x7f09000f;
         public static final int editTextLastName=0x7f090011;
-        public static final int editTextPassword=0x7f090008;
+        public static final int editTextPassword=0x7f09000a;
         public static final int editTextSign=0x7f090015;
         public static final int editTextUtaEmailId=0x7f090013;
-        public static final int editTextUtaID=0x7f090006;
+        public static final int editTextUtaID=0x7f090008;
         public static final int listViewNotifications=0x7f090017;
         public static final int section_label=0x7f09001c;
         public static final int tab1=0x7f09001a;
         public static final int tab2=0x7f090018;
-        public static final int textEnterRegisteredId=0x7f090002;
-        public static final int textSubject=0x7f09000c;
-        public static final int textTimeStamp=0x7f09000d;
+        public static final int textEnterRegisteredId=0x7f090004;
+        public static final int textSubject=0x7f090000;
+        public static final int textTimeStamp=0x7f090001;
         public static final int textView1=0x7f09001b;
         public static final int textView2=0x7f090019;
-        public static final int textViewEnterRegisteredId=0x7f090000;
+        public static final int textViewEnterRegisteredId=0x7f090002;
         public static final int textViewFirstName=0x7f09000e;
         public static final int textViewLastName=0x7f090010;
-        public static final int textViewPassword=0x7f090007;
-        public static final int textViewSafetyFirst=0x7f090004;
+        public static final int textViewPassword=0x7f090009;
+        public static final int textViewSafetyFirst=0x7f090006;
         public static final int textViewSignUpPassword=0x7f090014;
         public static final int textViewUtaEmailId=0x7f090012;
-        public static final int textViewUtaID=0x7f090005;
+        public static final int textViewUtaID=0x7f090007;
     }
     public static final class layout {
-        public static final int activity_forgot_password=0x7f030000;
-        public static final int activity_login=0x7f030001;
-        public static final int activity_median=0x7f030002;
+        public static final int activity_details_of_notification=0x7f030000;
+        public static final int activity_forgot_password=0x7f030001;
+        public static final int activity_login=0x7f030002;
         public static final int activity_sign_up=0x7f030003;
         public static final int activity_tab_action_bar=0x7f030004;
         public static final int activity_tab_mavalerts=0x7f030005;
@@ -72,12 +72,13 @@ public final class R {
         public static final int fragment_base=0x7f030008;
     }
     public static final class menu {
-        public static final int forgot_password=0x7f080000;
-        public static final int home=0x7f080001;
-        public static final int main=0x7f080002;
-        public static final int sign_up=0x7f080003;
-        public static final int trial=0x7f080004;
-        public static final int trial2=0x7f080005;
+        public static final int details_of_notification=0x7f080000;
+        public static final int forgot_password=0x7f080001;
+        public static final int home=0x7f080002;
+        public static final int main=0x7f080003;
+        public static final int sign_up=0x7f080004;
+        public static final int trial=0x7f080005;
+        public static final int trial2=0x7f080006;
     }
     public static final class string {
         public static final int action_settings=0x7f050002;
@@ -100,6 +101,7 @@ public final class R {
         public static final int signUpPassword=0x7f050011;
         public static final int sos=0x7f05000c;
         public static final int textMedian=0x7f05001b;
+        public static final int title_activity_details_of_notification=0x7f05001c;
         /**  activity_forgot_password.xml 
          */
         public static final int title_activity_forgot_password=0x7f050014;

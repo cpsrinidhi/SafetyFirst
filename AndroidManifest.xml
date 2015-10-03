@@ -3,7 +3,9 @@
     package="com.example.safetyfirst"
     android:versionCode="1"
     android:versionName="1.0" >
-	<uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-sdk
         android:minSdkVersion="19"
         android:targetSdkVersion="19" />
@@ -57,6 +59,10 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".DetailsOfNotificationActivity"
+            android:label="@string/title_activity_details_of_notification" >
         </activity>
     </application>
 

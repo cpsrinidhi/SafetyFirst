@@ -34,14 +34,13 @@
     <string name="title_activity_forgot_password">ForgotPasswordActivity</string>
     <string name="enterRegisteredId">Enter Registered Id</string>
     <string name="resendPassword">Resend Password</string>
-    
+
     <!-- activity_tab_action_bar.xml and it's related tab fragments -->
     <string name="title_activity_trial">Safety First</string>
     <string name="title_sos">SOS</string>
     <string name="title_pickMe">Pick Me</string>
     <string name="title_mavAlerts">Mav Alerts</string>
-    
-     <string name="textMedian">text Median</string>
-   
+    <string name="textMedian">text Median</string>
+    <string name="title_activity_details_of_notification">DetailsOfNotificationActivity</string>
 
 </resources>
