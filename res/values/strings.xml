@@ -41,6 +41,6 @@
     <string name="title_pickMe">Pick Me</string>
     <string name="title_mavAlerts">Mav Alerts</string>
     <string name="textMedian">text Median</string>
-    <string name="title_activity_details_of_notification">DetailsOfNotificationActivity</string>
+    <string name="title_activity_details_of_notification">Notification Details</string>
 
 </resources>

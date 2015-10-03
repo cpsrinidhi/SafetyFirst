@@ -42,22 +42,24 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MavAlertsFragment extends Fragment implements OnItemClickListener{
-	String [] values;
+public class MavAlertsFragment extends Fragment implements OnItemClickListener {
+	String[] values;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.activity_tab_mavalerts, container,
 				false);
 
-		final ListView listview = (ListView) v.findViewById(R.id.listViewNotifications);
+		final ListView listview = (ListView) v
+				.findViewById(R.id.listViewNotifications);
 
 		LinkToOmega omegaData = new LinkToOmega();
 		try {
 			values = omegaData.execute().get();
 		} catch (InterruptedException e) {
-			Log.e("MavAlertsFragment - ",
-					"Error in InterruptedException - " + e.toString());
+			Log.e("MavAlertsFragment - ", "Error in InterruptedException - "
+					+ e.toString());
 		} catch (ExecutionException e) {
 			Log.e("MavAlertsFragment - ",
 					"Error in ExecutionException - " + e.toString());
@@ -65,19 +67,20 @@ public class MavAlertsFragment extends Fragment implements OnItemClickListener{
 
 		final ArrayList<String> list = new ArrayList<String>();
 		for (int i = 0; i < values.length; ++i) {
-			String [] sub_time_stamp = values[i].split(";");
+			String[] sub_time_stamp = values[i].split(";");
 			String subject = sub_time_stamp[2];
 			String time_stamp = sub_time_stamp[1];
 			list.add(subject + " " + time_stamp);
-			Log.i("MavAlertsFragment - ", "Added data to list " + subject + " " + time_stamp);
+			Log.i("MavAlertsFragment - ", "Added data to list " + subject + " "
+					+ time_stamp);
 		}
-//		final StableArrayAdapter adapter = new StableArrayAdapter(this,
-//				android.R.layout.simple_list_item_1, list);
-		final StableArrayAdapter adapter = new StableArrayAdapter(getActivity(), 
-				android.R.layout.simple_list_item_1, list);
+		// final StableArrayAdapter adapter = new StableArrayAdapter(this,
+		// android.R.layout.simple_list_item_1, list);
+		final StableArrayAdapter adapter = new StableArrayAdapter(
+				getActivity(), android.R.layout.simple_list_item_1, list);
 		listview.setAdapter(adapter);
 		listview.setOnItemClickListener(this);
-		
+
 		return v;
 
 		// return (RelativeLayout) inflater.inflate(
@@ -89,20 +92,20 @@ public class MavAlertsFragment extends Fragment implements OnItemClickListener{
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 		final String item = (String) parent.getItemAtPosition(position);
-		Toast.makeText(getActivity(), item, Toast.LENGTH_LONG).show();
-		
-		Intent i = new Intent(getActivity(), DetailsOfNotificationActivity.class);
+		Toast.makeText(getActivity(), item + " " + id + " " + position,
+				Toast.LENGTH_LONG).show();
+
+		Intent i = new Intent(getActivity(),
+				DetailsOfNotificationActivity.class);
+
+		Log.i("MavAlertsFragment - ", "Data at clicked " + values[position]);
+		String [] sendData = values[position].split(";");
+
+		i.putExtra("textDetailsID", sendData[0]);
+		i.putExtra("textDetailsSubject", sendData[2]);
+		i.putExtra("textDetailsTimeStamp", sendData[1]);
+		i.putExtra("textDetailsBody", sendData[3]);
 		startActivity(i);
-//
-//		String dummyData = "Bread, Great Value Bread from Walmart. Available till October 4, 112 UTA Boulevard ERB 112 Arlington TX 76011, 1234567890";
-//		String[] sendData = dummyData.split(",");
-//		Intent i = new Intent(MavAlertsFragment.this,
-//				DetailsCharityPostActivity.class);
-//		i.putExtra("textOmegaHeader", sendData[0]);
-//		i.putExtra("textOmegaDescription", sendData[1]);
-//		i.putExtra("textOmegaAddress", sendData[2]);
-//		i.putExtra("textOmegaPhoneNumber", sendData[3]);
-//		startActivity(i);
 	}
 
 	private class StableArrayAdapter extends ArrayAdapter<String> {
@@ -112,7 +115,8 @@ public class MavAlertsFragment extends Fragment implements OnItemClickListener{
 		public StableArrayAdapter(Context context, int textViewResourceId,
 				List<String> objects) {
 			super(context, textViewResourceId, objects);
-			Log.i("MavAlertsFragment - ", "Inside StableArrayAdapter constructor");
+			Log.i("MavAlertsFragment - ",
+					"Inside StableArrayAdapter constructor");
 			for (int i = 0; i < objects.size(); ++i) {
 				mIdMap.put(objects.get(i), i);
 			}
@@ -159,18 +163,18 @@ public class MavAlertsFragment extends Fragment implements OnItemClickListener{
 				Log.i("MavAlertsFragment - ", "Created httpEntity");
 				if (httpEntity != null) {
 					isr = httpEntity.getContent();
-					Log.i("MavAlertsFragment - ", "Availability of isr "
-							+ isr.available());
+					Log.i("MavAlertsFragment - ",
+							"Availability of isr " + isr.available());
 				}
 			} catch (ClientProtocolException e) {
 				Log.e("MavAlertsFragment - ",
 						"Error in ClientProtocolException - " + e.toString());
 			} catch (IOException e) {
-				Log.e("MavAlertsFragment - ", "Error in IOException - "
-						+ e.toString());
+				Log.e("MavAlertsFragment - ",
+						"Error in IOException - " + e.toString());
 			} catch (Exception e) {
-				Log.e("MavAlertsFragment - ", "Error in Connection - "
-						+ e.toString());
+				Log.e("MavAlertsFragment - ",
+						"Error in Connection - " + e.toString());
 			}
 
 			// Convert the data in InputStream to String
@@ -180,8 +184,7 @@ public class MavAlertsFragment extends Fragment implements OnItemClickListener{
 				data = new String[] { " " };
 				while ((line = bReader.readLine()) != null) {
 					data = line.split("<br>");
-					Log.i("MavAlertsFragment - ", "Data from omega "
-							+ line);
+					Log.i("MavAlertsFragment - ", "Data from omega " + line);
 				}
 				for (int i = 0; i < data.length; i++) {
 					Log.i("MavAlertsFragment - ",
