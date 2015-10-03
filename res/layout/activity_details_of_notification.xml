@@ -9,29 +9,61 @@
     tools:context="com.example.safetyfirst.DetailsOfNotificationActivity" >
 
     <TextView
-        android:id="@+id/textDetailsSubject"
+        android:id="@+id/textDetailsSubjectHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="TextView" />
+        android:textStyle="bold"
+        android:text="Subject" />
+    	
+    
+    <TextView
+        android:id="@+id/textDetailsSubject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textDetailsSubjectHeader"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="Subject Details" />
 
     <TextView
-        android:id="@+id/textDetailsTimeStamp"
+        android:id="@+id/textDetailsTimeStampHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textDetailsSubject"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="TextView" />
+        android:textStyle="bold"
+		
+        android:text="Time Stamp" />
 
     <TextView
-        android:id="@+id/textDetailsBody"
+        android:id="@+id/textDetailsTimeStamp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textDetailsTimeStampHeader"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="Time Stamp Details" />
+
+    <TextView
+        android:id="@+id/textDetailsBodyHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textDetailsTimeStamp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="TextView" />
+        android:textStyle="bold"
+		android:text="Details" />
+
+    <TextView
+        android:id="@+id/textDetailsBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textDetailsBodyHeader"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="Details Body Details" />
 
 </RelativeLayout>
