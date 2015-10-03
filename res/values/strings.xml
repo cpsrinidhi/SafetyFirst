@@ -40,5 +40,8 @@
     <string name="title_sos">SOS</string>
     <string name="title_pickMe">Pick Me</string>
     <string name="title_mavAlerts">Mav Alerts</string>
+    
+     <string name="textMedian">text Median</string>
+   
 
 </resources>
