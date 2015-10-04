@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
-        android:text="Subject" />
+        android:text="Mav-Alert Subject" />
     	
     
     <TextView
@@ -36,7 +36,7 @@
         android:layout_marginTop="40dp"
         android:textStyle="bold"
 		
-        android:text="Time Stamp" />
+        android:text="Incident Time" />
 
     <TextView
         android:id="@+id/textDetailsTimeStamp"
@@ -55,7 +55,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:textStyle="bold"
-		android:text="Details" />
+		android:text="Mav-Alert Details" />
 
     <TextView
         android:id="@+id/textDetailsBody"

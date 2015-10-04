@@ -27,9 +27,10 @@ public final class R {
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
         public static final int safetyfirst=0x7f020001;
+        public static final int safetyfirst1=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f090021;
+        public static final int action_settings=0x7f090022;
         public static final int buttonForgotPassword=0x7f090011;
         public static final int buttonLogin=0x7f090010;
         public static final int buttonRegister=0x7f09001a;
@@ -42,10 +43,11 @@ public final class R {
         public static final int editTextSign=0x7f090019;
         public static final int editTextUtaEmailId=0x7f090017;
         public static final int editTextUtaID=0x7f09000c;
-        public static final int listViewNotifications=0x7f09001b;
-        public static final int section_label=0x7f090020;
-        public static final int tab1=0x7f09001e;
-        public static final int tab2=0x7f09001c;
+        public static final int listViewNotifications=0x7f09001c;
+        public static final int section_label=0x7f090021;
+        public static final int splashLogo=0x7f09001b;
+        public static final int tab1=0x7f09001f;
+        public static final int tab2=0x7f09001d;
         public static final int textDetailsBody=0x7f090005;
         public static final int textDetailsBodyHeader=0x7f090004;
         public static final int textDetailsSubject=0x7f090001;
@@ -53,8 +55,8 @@ public final class R {
         public static final int textDetailsTimeStamp=0x7f090003;
         public static final int textDetailsTimeStampHeader=0x7f090002;
         public static final int textEnterRegisteredId=0x7f090008;
-        public static final int textView1=0x7f09001f;
-        public static final int textView2=0x7f09001d;
+        public static final int textView1=0x7f090020;
+        public static final int textView2=0x7f09001e;
         public static final int textViewEnterRegisteredId=0x7f090006;
         public static final int textViewFirstName=0x7f090012;
         public static final int textViewLastName=0x7f090014;
@@ -69,11 +71,12 @@ public final class R {
         public static final int activity_forgot_password=0x7f030001;
         public static final int activity_login=0x7f030002;
         public static final int activity_sign_up=0x7f030003;
-        public static final int activity_tab_action_bar=0x7f030004;
-        public static final int activity_tab_mavalerts=0x7f030005;
-        public static final int activity_tab_pickme=0x7f030006;
-        public static final int activity_tab_sos=0x7f030007;
-        public static final int fragment_base=0x7f030008;
+        public static final int activity_splash=0x7f030004;
+        public static final int activity_tab_action_bar=0x7f030005;
+        public static final int activity_tab_mavalerts=0x7f030006;
+        public static final int activity_tab_pickme=0x7f030007;
+        public static final int activity_tab_sos=0x7f030008;
+        public static final int fragment_base=0x7f030009;
     }
     public static final class menu {
         public static final int details_of_notification=0x7f080000;
@@ -81,8 +84,9 @@ public final class R {
         public static final int home=0x7f080002;
         public static final int main=0x7f080003;
         public static final int sign_up=0x7f080004;
-        public static final int trial=0x7f080005;
-        public static final int trial2=0x7f080006;
+        public static final int splash=0x7f080005;
+        public static final int trial=0x7f080006;
+        public static final int trial2=0x7f080007;
     }
     public static final class string {
         public static final int action_settings=0x7f050002;

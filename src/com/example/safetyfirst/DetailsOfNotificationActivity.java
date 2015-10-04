@@ -16,7 +16,7 @@ public class DetailsOfNotificationActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_details_of_notification);		
 
-		Log.i("DetailsOfNotificationActivity - ", "I am here. Suck it!");
+		Log.i("DetailsOfNotificationActivity - ", "I am here. ");
 		
 //		textDetailsID = (TextView) findViewById(R.id.textDetailsID);
 		textDetailsSubject = (TextView) findViewById(R.id.textDetailsSubject);
