@@ -57,6 +57,7 @@ public class MavAlertsFragment extends Fragment implements OnItemClickListener {
 		LinkToOmega omegaData = new LinkToOmega();
 		try {
 			values = omegaData.execute().get();
+			//System.out.println("Values :" +values);
 		} catch (InterruptedException e) {
 			Log.e("MavAlertsFragment - ", "Error in InterruptedException - "
 					+ e.toString());
@@ -66,8 +67,11 @@ public class MavAlertsFragment extends Fragment implements OnItemClickListener {
 		}
 
 		final ArrayList<String> list = new ArrayList<String>();
-		for (int i = 0; i < values.length; ++i) {
+		for (int i = 0; i < values.length;i++) {
+			System.out.println("inside for loop of converting values of i to string and splitting");
+			System.out.println("value of i" +values[i]);
 			String[] sub_time_stamp = values[i].split(";");
+			System.out.println("after splitting" +sub_time_stamp);
 			String subject = sub_time_stamp[2];
 			String time_stamp = sub_time_stamp[1];
 			list.add(subject + " " + time_stamp);
@@ -150,17 +154,17 @@ public class MavAlertsFragment extends Fragment implements OnItemClickListener {
 			// Create Http request and response objects to connect to Omega
 			try {
 				httpClient = new DefaultHttpClient();
-				Log.i("MavAlertsFragment - ", "Created httpClient");
+				//Log.i("MavAlertsFragment - ", "Created httpClient");
 
 				httpPost = new HttpPost(
 						"http://omega.uta.edu/~sxc3409/postNotification.php");
-				Log.i("MavAlertsFragment - ", "Created httpPost to omega");
+				//Log.i("MavAlertsFragment - ", "Created httpPost to omega");
 
 				httpResponse = httpClient.execute(httpPost);
-				Log.i("MavAlertsFragment - ", "Created httpResponse");
+				//Log.i("MavAlertsFragment - ", "Created httpResponse");
 
 				httpEntity = httpResponse.getEntity();
-				Log.i("MavAlertsFragment - ", "Created httpEntity");
+				//Log.i("MavAlertsFragment - ", "Created httpEntity");
 				if (httpEntity != null) {
 					isr = httpEntity.getContent();
 					Log.i("MavAlertsFragment - ",
@@ -189,6 +193,7 @@ public class MavAlertsFragment extends Fragment implements OnItemClickListener {
 				for (int i = 0; i < data.length; i++) {
 					Log.i("MavAlertsFragment - ",
 							"Data from omega converted to String [] " + data[i]);
+					//System.out.println("data in perticular line " +data[i]+ "awfgsad" + i);
 				}
 				return data;
 			} catch (IOException e) {
