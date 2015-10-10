@@ -25,12 +25,16 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int safetyfirst=0x7f020001;
-        public static final int safetyfirst1=0x7f020002;
+        public static final int contacticon=0x7f020000;
+        public static final int contacts=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int icon=0x7f020003;
+        public static final int safetyfirst=0x7f020004;
+        public static final int safetyfirst1=0x7f020005;
     }
     public static final class id {
-        public static final int action_settings=0x7f090021;
+        public static final int action_settings=0x7f090024;
+        public static final int button1=0x7f090022;
         public static final int buttonForgotPassword=0x7f090010;
         public static final int buttonLogin=0x7f09000f;
         public static final int buttonRegister=0x7f090019;
@@ -43,8 +47,11 @@ public final class R {
         public static final int editTextSign=0x7f090018;
         public static final int editTextUtaEmailId=0x7f090016;
         public static final int editTextUtaID=0x7f09000b;
+        public static final int imageButton1=0x7f09001f;
+        public static final int imageButton2=0x7f090020;
+        public static final int imageButton3=0x7f090021;
         public static final int listViewNotifications=0x7f09001b;
-        public static final int section_label=0x7f090020;
+        public static final int section_label=0x7f090023;
         public static final int splashLogo=0x7f09001a;
         public static final int tab1=0x7f09001e;
         public static final int tab2=0x7f09001c;
@@ -54,7 +61,6 @@ public final class R {
         public static final int textDetailsSubjectHeader=0x7f090000;
         public static final int textDetailsTimeStamp=0x7f090003;
         public static final int textDetailsTimeStampHeader=0x7f090002;
-        public static final int textView1=0x7f09001f;
         public static final int textView2=0x7f09001d;
         public static final int textViewEnterRegisteredId=0x7f090006;
         public static final int textViewFirstName=0x7f090011;
