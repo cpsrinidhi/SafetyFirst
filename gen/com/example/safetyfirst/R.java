@@ -34,13 +34,14 @@ public final class R {
         public static final int safetyfirst1=0x7f020006;
     }
     public static final class id {
-        public static final int action_settings=0x7f090025;
-        public static final int button1=0x7f090023;
+        public static final int action_settings=0x7f09002a;
         public static final int buttonForgotPassword=0x7f090010;
         public static final int buttonLogin=0x7f09000f;
         public static final int buttonRegister=0x7f090019;
         public static final int buttonResendPassword=0x7f090008;
+        public static final int buttonSOS=0x7f090023;
         public static final int buttonSignUp=0x7f09000e;
+        public static final int buttonStopSos=0x7f090024;
         public static final int editEnterRegisteredId=0x7f090007;
         public static final int editTextFirstName=0x7f090012;
         public static final int editTextLastName=0x7f090014;
@@ -48,11 +49,11 @@ public final class R {
         public static final int editTextSign=0x7f090018;
         public static final int editTextUtaEmailId=0x7f090016;
         public static final int editTextUtaID=0x7f09000b;
-        public static final int imageButton1=0x7f090020;
-        public static final int imageButton2=0x7f090021;
-        public static final int imageButton3=0x7f090022;
+        public static final int imageButtonContact1=0x7f090021;
+        public static final int imageButtonContact2=0x7f090020;
+        public static final int imageButtonContact3=0x7f090022;
         public static final int listViewNotifications=0x7f09001c;
-        public static final int section_label=0x7f090024;
+        public static final int section_label=0x7f090029;
         public static final int splashLogo=0x7f09001a;
         public static final int tab1=0x7f09001f;
         public static final int tab2=0x7f09001d;
@@ -64,8 +65,12 @@ public final class R {
         public static final int textDetailsTimeStampHeader=0x7f090002;
         public static final int textView1=0x7f09001b;
         public static final int textView2=0x7f09001e;
+        public static final int textViewContact1=0x7f090025;
+        public static final int textViewContact2=0x7f090026;
+        public static final int textViewContact3=0x7f090027;
         public static final int textViewEnterRegisteredId=0x7f090006;
         public static final int textViewFirstName=0x7f090011;
+        public static final int textViewHeader=0x7f090028;
         public static final int textViewLastName=0x7f090013;
         public static final int textViewPassword=0x7f09000c;
         public static final int textViewSafetyFirst=0x7f090009;

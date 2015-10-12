@@ -1,31 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/tab1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-     android:orientation="vertical">
+    android:orientation="vertical" >
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/imageButtonContact2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageButtonContact1"
+        android:layout_below="@+id/imageButtonContact1"
+        android:layout_marginTop="30dp"
         android:src="@drawable/contacticon" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/imageButtonContact3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/contacticon" />
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageButtonContact2"
+        android:layout_below="@+id/imageButtonContact2"
+        android:layout_marginTop="30dp"
         android:src="@drawable/contacticon" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/buttonSOS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/imageButtonContact3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:text="Send SOS" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/buttonStopSos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonSOS"
+        android:layout_below="@+id/buttonSOS"
+        android:layout_marginTop="30dp"
+        android:text="Stop SOS" />
+
+    <TextView
+        android:id="@+id/textViewContact1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageButtonContact2"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/imageButtonContact1"
+        android:text="Contact 1"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textViewContact2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageButtonContact2"
+        android:layout_alignLeft="@+id/textViewContact1"
+        android:text="Contact 2"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textViewContact3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonSOS"
+        android:layout_alignLeft="@+id/textViewContact2"
+        android:text="Contact 3"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textViewHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Click on Contact icon to set/edit emergency contacts."
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ImageButton
+        android:id="@+id/imageButtonContact1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textViewHeader"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/contacticon" />
+
+</RelativeLayout>
