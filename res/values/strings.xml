@@ -42,8 +42,6 @@
     <string name="title_mavAlerts">Mav Alerts</string>
     <string name="textMedian">text Median</string>
     <string name="title_activity_details_of_notification">Notification Details</string>
-    
-   
-    
+    <string name="title_activity_contact">ContactActivity</string>
 
 </resources>

@@ -36,7 +36,7 @@
         android:layout_marginLeft="32dp"
         android:layout_toRightOf="@+id/textViewUtaID"
         android:ems="10"
-        android:hint="@string/userName" >
+        android:hint="UTA Mail ID" >
 
         <requestFocus />
     </EditText>
@@ -58,7 +58,8 @@
         android:layout_alignBottom="@+id/textViewPassword"
         android:layout_alignLeft="@+id/editTextUtaID"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPassword" 
+        android:hint="Password"/>
 
     <Button
         android:id="@+id/buttonSignUp"

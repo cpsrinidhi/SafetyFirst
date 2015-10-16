@@ -60,6 +60,7 @@ public class LoginActivity extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.buttonLogin:
+			
 			i = new Intent("com.example.safetyfirst.TABACTIONBARACTIVITY");
 			startActivity(i);
 			
