@@ -4,13 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@color/black"
+    >
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentTop="false"
+        android:alpha="0.5"
+        android:scaleType="centerCrop"
+        android:src="@drawable/uta_copy" />
+    
  
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Coming Soon" />
+        android:text="Coming Soon" 
+        android:textColor="#FFFFFF" />
  
 </LinearLayout>

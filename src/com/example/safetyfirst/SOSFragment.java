@@ -57,6 +57,7 @@ public class SOSFragment extends Fragment implements OnClickListener {
 		contact2.setOnClickListener(this);
 		contact3.setOnClickListener(this);
 		sendSos.setOnClickListener(this);
+		stopSos.setEnabled(false); 
 
 		// try {
 		// ArrayList<String> dbData = DBAccess.retrieveDB(myDB, null);
@@ -106,6 +107,8 @@ public class SOSFragment extends Fragment implements OnClickListener {
 			locationManager.requestLocationUpdates(
 					LocationManager.GPS_PROVIDER, 5000, 3000, listener);
 			new SMSAsynTask().execute();
+			stopSos.setEnabled(true);
+			sendSos.setEnabled(false); 
 			break;
 
 		}

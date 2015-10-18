@@ -6,7 +6,20 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/black"
     tools:context="com.example.safetyfirst.ContactActivity" >
+    
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentTop="false"
+        android:alpha="0.5"
+        android:scaleType="centerCrop"
+        android:src="@drawable/uta_copy" />
+    
 
     <TextView
         android:id="@+id/textViewName"
@@ -15,7 +28,9 @@
         android:layout_alignLeft="@+id/textView2"
         android:layout_below="@+id/textView2"
         android:layout_marginTop="16dp"
-        android:text="Name" />
+        android:text="Name"
+        android:textColorHint="#110F10"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonSave"
@@ -24,7 +39,9 @@
         android:layout_below="@+id/textViewPN"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="133dp"
-        android:text="Save" />
+       
+        android:text="Save" 
+        android:textColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/editTextName"
@@ -34,7 +51,8 @@
         android:layout_alignBottom="@+id/textViewName"
         android:layout_alignLeft="@+id/buttonSave"
         android:ems="10"
-        android:hint="Name" >
+        android:hint="Name" 
+        android:textColor="#FFFFFF" >
 
         <requestFocus />
     </EditText>
@@ -46,7 +64,8 @@
         android:layout_below="@+id/editTextPN"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="Auto select from Contacts" />
+        android:text="Auto select from Contacts" 
+        android:textColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/editTextPN"
@@ -57,7 +76,8 @@
         android:layout_alignLeft="@+id/editTextName"
         android:layout_alignRight="@+id/editTextName"
         android:ems="10"
-        android:hint="Phone Number" />
+        android:hint="Phone Number" 
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/textViewPN"
@@ -66,6 +86,7 @@
         android:layout_alignLeft="@+id/textViewName"
         android:layout_below="@+id/editTextName"
         android:layout_marginTop="38dp"
-        android:text="Phone Number" />
+        android:text="Phone Number" 
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>

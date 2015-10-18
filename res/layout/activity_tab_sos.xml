@@ -3,7 +3,22 @@
     android:id="@+id/tab1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@color/black"
+     >
+    
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:alpha="0.5"
+        android:scaleType="centerCrop"
+        android:src="@drawable/uta_copy" />
+    
+    
 
     <ImageButton
         android:id="@+id/imageButtonContact2"
@@ -12,7 +27,8 @@
         android:layout_alignLeft="@+id/imageButtonContact1"
         android:layout_below="@+id/imageButtonContact1"
         android:layout_marginTop="30dp"
-        android:src="@drawable/contacticon" />
+        android:src="@drawable/contacts"
+        android:textColor="#FFFFFF"  />
 
     <ImageButton
         android:id="@+id/imageButtonContact3"
@@ -21,7 +37,8 @@
         android:layout_alignLeft="@+id/imageButtonContact2"
         android:layout_below="@+id/imageButtonContact2"
         android:layout_marginTop="30dp"
-        android:src="@drawable/contacticon" />
+        android:src="@drawable/contacts" 
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonSOS"
@@ -30,7 +47,8 @@
         android:layout_below="@+id/imageButtonContact3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="Send SOS" />
+        android:text="Send SOS"
+        android:textColor="#FFFFFF"  />
 
     <Button
         android:id="@+id/buttonStopSos"
@@ -39,35 +57,8 @@
         android:layout_alignLeft="@+id/buttonSOS"
         android:layout_below="@+id/buttonSOS"
         android:layout_marginTop="30dp"
-        android:text="Stop SOS" />
-
-    <TextView
-        android:id="@+id/textViewContact1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/imageButtonContact2"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/imageButtonContact1"
-        android:text="pranav"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/textViewContact2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageButtonContact2"
-        android:layout_alignLeft="@+id/textViewContact1"
-        android:text="vikas"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/textViewContact3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonSOS"
-        android:layout_alignLeft="@+id/textViewContact2"
-        android:text="Meet"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="Stop SOS" 
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/textViewHeader"
@@ -78,16 +69,50 @@
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="Click on Contact icon to set/edit emergency contacts."
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium" 
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/textViewContact1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageButtonContact1"
+        android:layout_alignLeft="@+id/buttonSOS"
+        android:layout_marginBottom="15dp"
+        android:text="pranav"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/textViewContact2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewContact1"
+        android:layout_alignTop="@+id/imageButtonContact2"
+        android:layout_marginBottom="15dp"
+        android:text="vikas"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/textViewContact3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageButtonContact3"
+        android:layout_alignLeft="@+id/buttonSOS"
+        android:layout_marginBottom="15dp"
+        android:text="Meet"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF" />
 
     <ImageButton
         android:id="@+id/imageButtonContact1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_below="@+id/textViewHeader"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/contacticon" />
+        android:layout_marginTop="14dp"
+        android:layout_toLeftOf="@+id/textViewContact1"
+        android:src="@drawable/contacts"
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>

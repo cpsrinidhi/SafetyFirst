@@ -6,7 +6,20 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.textViewSafetyFirst.LoginActivity" >
+    tools:context="com.example.textViewSafetyFirst.LoginActivity" 
+    android:background="@color/black">
+    
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentTop="false"
+        android:alpha="0.5"
+        android:scaleType="centerCrop"
+        android:src="@drawable/uta_copy" />
+    
 
     <TextView
         android:id="@+id/textViewSafetyFirst"
@@ -16,7 +29,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
         android:text="@string/safetyFirst"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF"  />
 
     <TextView
         android:id="@+id/textViewUtaID"
@@ -26,6 +40,7 @@
         android:layout_below="@+id/textViewSafetyFirst"
         android:layout_marginTop="50dp"
         android:text="@string/utaID"
+        android:textColor="#FFFFFF" 
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
@@ -34,6 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textViewUtaID"
         android:layout_marginLeft="32dp"
+        android:textColor="#FFFFFF" 
         android:layout_toRightOf="@+id/textViewUtaID"
         android:ems="10"
         android:hint="UTA Mail ID" >
@@ -49,6 +65,7 @@
         android:layout_below="@+id/textViewUtaID"
         android:layout_marginTop="38dp"
         android:text="@string/password"
+        android:textColor="#FFFFFF" 
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
@@ -58,7 +75,8 @@
         android:layout_alignBottom="@+id/textViewPassword"
         android:layout_alignLeft="@+id/editTextUtaID"
         android:ems="10"
-        android:inputType="textPassword" 
+        android:inputType="textPassword"
+        android:textColor="#FFFFFF"  
         android:hint="Password"/>
 
     <Button
@@ -69,9 +87,9 @@
         android:layout_below="@+id/buttonLogin"
         android:layout_marginTop="62dp"
         android:autoLink="all"
+        android:textColor="#FFFFFF" 
         android:text="@string/signUp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/black"
         android:textSize="18sp" />
 
     <Button
@@ -82,9 +100,9 @@
         android:layout_alignBottom="@+id/buttonSignUp"
         android:layout_alignLeft="@+id/textViewPassword"
         android:autoLink="all"
+        android:textColor="#FFFFFF" 
         android:text="@string/forgotPassword"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/black"
         android:textSize="18sp" />
 
     <Button
@@ -95,6 +113,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="34dp"
         android:onClick="login"
+        android:textColor="#FFFFFF" 
         android:text="@string/login" />
 
 

@@ -6,7 +6,21 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/black"
     tools:context="com.example.safetyfirst.DetailsOfNotificationActivity" >
+    
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentTop="false"
+        android:alpha="0.5"
+        android:scaleType="centerCrop"
+        android:src="@drawable/uta_copy" />
+    
+    
 
     <TextView
         android:id="@+id/textDetailsSubjectHeader"
@@ -15,7 +29,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
-        android:text="Mav-Alert Subject" />
+        android:text="Mav-Alert Subject"
+        android:textColor="#FFFFFF"  />
     	
     
     <TextView
@@ -25,7 +40,8 @@
         android:layout_below="@+id/textDetailsSubjectHeader"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="Subject Details" />
+        android:text="Subject Details" 
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/textDetailsTimeStampHeader"
@@ -35,6 +51,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:textStyle="bold"
+        android:textColor="#FFFFFF" 
 		
         android:text="Incident Time" />
 
@@ -45,7 +62,8 @@
         android:layout_below="@+id/textDetailsTimeStampHeader"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="Time Stamp Details" />
+        android:text="Time Stamp Details" 
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/textDetailsBodyHeader"
@@ -55,7 +73,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:textStyle="bold"
-		android:text="Mav-Alert Details" />
+		android:text="Mav-Alert Details" 
+		android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/textDetailsBody"
@@ -64,6 +83,7 @@
         android:layout_below="@+id/textDetailsBodyHeader"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="Details Body Details" />
+        android:text="Details Body Details" 
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>

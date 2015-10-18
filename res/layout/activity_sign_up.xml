@@ -6,66 +6,90 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.safetyfirst.SignUpActivity" >
+    tools:context="com.example.safetyfirst.SignUpActivity"
+    android:background="@color/black" >
+    
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentTop="false"
+        android:alpha="0.5"
+        android:scaleType="centerCrop"
+        android:src="@drawable/uta_copy" />
 
     <TextView
         android:id="@+id/textViewFirstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
         android:layout_alignParentTop="true"
-        android:text="@string/firstName" />
+        android:text="@string/firstName"
+        android:textColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/editTextFirstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_alignBottom="@+id/textViewFirstName"
         android:layout_alignParentRight="true"
         android:layout_marginTop="35dp"
         android:ems="10"
-        android:inputType="text" >
+        android:inputType="text"
+        android:textColor="#FFFFFF" >
 
         <requestFocus />
     </EditText>
 
     <TextView
         android:id="@+id/textViewLastName"
+        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textViewFirstName"
         android:layout_below="@+id/textViewFirstName"
         android:layout_marginTop="35dp"
-        android:text="@string/lastName" />
+        android:text="@string/lastName" 
+        android:textColor="#FFFFFF"/>
 
     <EditText
         android:id="@+id/editTextLastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_alignParentRight="true"
         android:layout_alignBottom="@+id/textViewLastName"
         android:layout_marginTop="35dp"
         android:ems="10"
-        android:inputType="text" />
+        android:inputType="text" 
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:id="@+id/textViewUtaEmailId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_alignLeft="@+id/textViewLastName"
         android:layout_below="@+id/textViewLastName"
         android:layout_marginTop="35dp"
-        android:text="@string/utaEmailId" />
+        android:text="@string/utaEmailId"
+        android:textColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/editTextUtaEmailId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
         android:layout_alignBottom="@+id/textViewUtaEmailId"
         android:layout_marginTop="35dp"
         android:ems="10"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/textViewSignUpPassword"
@@ -74,6 +98,8 @@
         android:layout_alignLeft="@+id/textViewUtaEmailId"
         android:layout_below="@+id/textViewUtaEmailId"
         android:layout_marginTop="35dp"
+        android:layout_centerInParent="true"
+        android:textColor="#FFFFFF"
         android:text="@string/signUpPassword" />
 
     <EditText
@@ -84,6 +110,8 @@
         android:layout_alignBottom="@+id/textViewSignUpPassword"
         android:layout_marginTop="35dp"
         android:ems="10"
+        android:layout_centerInParent="true"
+        android:textColor="#FFFFFF"
         android:inputType="textPassword" />
 
     <Button
@@ -93,6 +121,8 @@
         android:layout_below="@+id/editTextSign"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
-        android:text="@string/register" />
+        android:text="@string/register"
+        android:layout_centerInParent="true"
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>
