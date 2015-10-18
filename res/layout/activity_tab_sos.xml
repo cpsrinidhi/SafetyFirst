@@ -48,7 +48,7 @@
         android:layout_above="@+id/imageButtonContact2"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/imageButtonContact1"
-        android:hint="None selected"
+        android:text="pranav"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imageButtonContact2"
         android:layout_alignLeft="@+id/textViewContact1"
-        android:hint="None selected"
+        android:text="vikas"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonSOS"
         android:layout_alignLeft="@+id/textViewContact2"
-        android:hint="None selected"
+        android:text="Meet"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView

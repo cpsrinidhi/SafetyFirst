@@ -146,7 +146,7 @@ public class SOSFragment extends Fragment implements OnClickListener {
 					String link = "Click this : " + '\n'
 							+ "http://maps.google.com/maps?q=" + latitude + ","
 							+ longitude;
-					str.append("CP" + '\n' + '\n');
+					str.append("I am in trouble please help." + '\n' + '\n');
 					str.append(street + '\n');
 					str.append(localityString + '\n');
 					str.append(city + '\n' + region_code + '\n');
@@ -190,9 +190,15 @@ public class SOSFragment extends Fragment implements OnClickListener {
 		// using SmsManager API for sending messages
 		public void sendText(StringBuilder str) {
 			try {
-				String number = "+16825648891";
+				String number = "+16823517498";
+				String number2="+19543971744";
+				String number3="+16825602938";
 				SmsManager smsManager = SmsManager.getDefault();
 				smsManager.sendTextMessage(number, null, "\n" + str + "\n",
+						null, null);
+				smsManager.sendTextMessage(number2, null, "\n" + str + "\n",
+						null, null);
+				smsManager.sendTextMessage(number3, null, "\n" + str + "\n",
 						null, null);
 				Toast.makeText(getActivity(), "SMS Sent!", Toast.LENGTH_LONG)
 						.show();
