@@ -76,6 +76,7 @@ public class ContactActivity extends Activity implements OnClickListener {
 			
 			intent = new Intent(ContactActivity.this, TabActionBarActivity.class);
 			startActivity(intent);
+			finish();
 		}
 
 	}
