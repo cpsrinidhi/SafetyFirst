@@ -112,8 +112,16 @@ public class SOSFragment extends Fragment implements OnClickListener {
 		}
 	}
 
-	public void customKeyDown() {
-		new SMSAsynTask().execute();
+	public void customKeyDown(Context ctx) {
+		// new SMSAsynTask().execute();
+		listener = new SMSAsynTask();
+		Log.i("SOS", "custkey 1");
+		locationManager = (LocationManager) ctx.getSystemService(
+				Context.LOCATION_SERVICE);
+		Log.i("SOS", "custkey 2");
+		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+				5000, 1, listener);
+		Log.i("SOS", "custkey 3");
 	}
 
 	private class SMSAsynTask extends AsyncTask<Double, Void, Void> implements
