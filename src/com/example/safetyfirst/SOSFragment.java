@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Locale;
 
 import android.app.Fragment;
+import android.app.KeyguardManager;
+import android.app.KeyguardManager.KeyguardLock;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -41,10 +43,6 @@ public class SOSFragment extends Fragment implements OnClickListener {
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.activity_tab_sos, container, false);
 
-		// myDB = getActivity().openOrCreateDatabase("safetyfirst",
-		// android.content.Context.MODE_PRIVATE, null);
-		// DBAccess.createDB(myDB);
-
 		contact1 = (ImageButton) v.findViewById(R.id.imageButtonContact1);
 		contact2 = (ImageButton) v.findViewById(R.id.imageButtonContact2);
 		contact3 = (ImageButton) v.findViewById(R.id.imageButtonContact3);
@@ -57,22 +55,15 @@ public class SOSFragment extends Fragment implements OnClickListener {
 		contact2.setOnClickListener(this);
 		contact3.setOnClickListener(this);
 		sendSos.setOnClickListener(this);
-		stopSos.setEnabled(false); 
+		stopSos.setOnClickListener(this);
 
-		// try {
-		// ArrayList<String> dbData = DBAccess.retrieveDB(myDB, null);
-		//
-		// if (dbData.size() == 1) {
-		// String contactName = dbData.get(0).split(";")[0];
-		// String contactPhone = dbData.get(0).split(";")[1];
-		// textViewContact1.setText(contactName + "\n" + contactPhone);
-		// }
-		// } catch (Exception e) {
-		// Log.e("SOS", e.getMessage());
-		// }
+		KeyguardManager guard = (KeyguardManager) getActivity()
+				.getSystemService(getActivity().KEYGUARD_SERVICE);
+		KeyguardLock keyGuardLock = guard
+				.newKeyguardLock("KeyguardLockWrapper");
+		keyGuardLock.disableKeyguard();
 
 		return v;
-
 	}
 
 	@Override
@@ -102,16 +93,27 @@ public class SOSFragment extends Fragment implements OnClickListener {
 
 		case R.id.buttonSOS:
 			listener = new SMSAsynTask();
+			Log.i("SOS", "1");
 			locationManager = (LocationManager) getActivity().getSystemService(
 					Context.LOCATION_SERVICE);
+			Log.i("SOS", "2");
 			locationManager.requestLocationUpdates(
-					LocationManager.GPS_PROVIDER, 5000, 3000, listener);
+					LocationManager.GPS_PROVIDER, 5000, 1, listener);
+			Log.i("SOS", "3");
 			new SMSAsynTask().execute();
-			stopSos.setEnabled(true);
-			sendSos.setEnabled(false); 
+			Log.i("SOS", "4");
+			break;
+
+		case R.id.buttonStopSos:
+			Log.i("SOS", "buttonStopSOS");
+			getActivity().finish();
 			break;
 
 		}
+	}
+
+	public void customKeyDown() {
+		new SMSAsynTask().execute();
 	}
 
 	private class SMSAsynTask extends AsyncTask<Double, Void, Void> implements
@@ -124,11 +126,11 @@ public class SOSFragment extends Fragment implements OnClickListener {
 			double latitude;
 			double longitude;
 
+			Log.i("SOS", "SMSAsyncTask");
+
 			// getting the location coordinates
 			latitude = location.getLatitude();
 			longitude = location.getLongitude();
-
-			Log.i("SOS", "SMSAsyncTask");
 
 			try {
 				// formatting the coordinates to the formatted address
@@ -186,7 +188,7 @@ public class SOSFragment extends Fragment implements OnClickListener {
 
 		@Override
 		protected Void doInBackground(Double... params) {
-			// TODO Auto-generated method stub
+			Log.i("SOS", "SMSAsyncTask DIB");
 			return null;
 		}
 
@@ -194,8 +196,8 @@ public class SOSFragment extends Fragment implements OnClickListener {
 		public void sendText(StringBuilder str) {
 			try {
 				String number = "+16823517498";
-				String number2="+19543971744";
-				String number3="+16825602938";
+				String number2 = "+19543971744";
+				String number3 = "+18174120353";
 				SmsManager smsManager = SmsManager.getDefault();
 				smsManager.sendTextMessage(number, null, "\n" + str + "\n",
 						null, null);
@@ -215,4 +217,5 @@ public class SOSFragment extends Fragment implements OnClickListener {
 		}
 
 	}
+
 }

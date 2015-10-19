@@ -6,8 +6,12 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.widget.Toast;
 
 public class TabActionBarActivity extends Activity {
+	int keyCount = 0;
 	 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +46,43 @@ public class TabActionBarActivity extends Activity {
         actionBar.addTab(tab);
  
     }
+    
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+    	if(event.getKeyCode() == KeyEvent.KEYCODE_POWER){
+    		Toast.makeText(getApplicationContext(), "dispatch to SOS", Toast.LENGTH_LONG).show();
+    		Log.i("TABA", "dispatch to SOS");
+    		new SOSFragment().customKeyDown();
+    		Toast.makeText(getApplicationContext(), "from SOS", Toast.LENGTH_LONG).show();
+    		Log.i("TABA", "back to dispatch");
+    		return true;
+    	}
+    	return super.dispatchKeyEvent(event);
+    }
  
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+    	if (event.getKeyCode()== KeyEvent.KEYCODE_POWER){
+    		event.startTracking();
+    		keyCount++;
+    		if (keyCount == 3){
+    			new SOSFragment().customKeyDown();
+    		}
+//    		return true;
+    	}
+    	return super.onKeyDown(keyCode, event);
+    }
+    
+    @Override
+    public boolean onKeyLongPress(int keyCode, KeyEvent event) {
+    	if(event.getKeyCode() == KeyEvent.KEYCODE_POWER){
+    		Log.i("TABA", "Long press to SOS");
+    		new SOSFragment().customKeyDown();
+//    		return true;
+    	}
+    	return super.onKeyLongPress(keyCode, event);
+    }
+    
     private class TabListener<T extends Fragment> implements
             ActionBar.TabListener {
         private Fragment mFragment;
