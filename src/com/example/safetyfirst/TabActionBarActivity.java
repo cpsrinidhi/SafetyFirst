@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -17,10 +18,12 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.Toast;
+import android.os.Vibrator;
 
 public class TabActionBarActivity extends Activity {
 	int keyCount = 0;
@@ -57,6 +60,9 @@ public class TabActionBarActivity extends Activity {
 		tab.setTabListener(tl3);
 		actionBar.addTab(tab);
 
+//		TabActionBarActivity.this.startService(new Intent(
+//				TabActionBarActivity.this, SafetyInBackgroundService.class));
+
 	}
 
 	@Override
@@ -71,17 +77,17 @@ public class TabActionBarActivity extends Activity {
 			// Log.i("TABA", "back to dispatch");
 
 			LocationManager locationManager;
-			LocationListener locationListener;
 			LocationListener listener;
-			listener = new SMSAsynTask();
+			listener = new TabMainAsyncTask();
 			Log.i("TABA", "1");
 			locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 			Log.i("TABA", "2");
 			locationManager.requestLocationUpdates(
-					LocationManager.GPS_PROVIDER, 5000, 1, listener);
+					LocationManager.GPS_PROVIDER, 15000, 1, listener);
 			Log.i("TABA", "3");
-			new SMSAsynTask().execute();
+			new TabMainAsyncTask().execute();
 			Log.i("TABA", "4");
+
 			return true;
 		}
 		return super.dispatchKeyEvent(event);
@@ -89,17 +95,28 @@ public class TabActionBarActivity extends Activity {
 
 	// @Override
 	// public boolean onKeyDown(int keyCode, KeyEvent event) {
-	// if (event.getKeyCode()== KeyEvent.KEYCODE_POWER){
+	// if (event.getKeyCode() == KeyEvent.KEYCODE_POWER) {
 	// event.startTracking();
 	// keyCount++;
-	// if (keyCount == 3){
-	// new SOSFragment().customKeyDown();
+	// if (keyCount == 3) {
+	// LocationManager locationManager;
+	// LocationListener listener;
+	// listener = new TabMainAsyncTask();
+	// Log.i("TABA", "onKeyDown 1");
+	// locationManager = (LocationManager)
+	// getSystemService(Context.LOCATION_SERVICE);
+	// Log.i("TABA", "onKeyDown 2");
+	// locationManager.requestLocationUpdates(
+	// LocationManager.GPS_PROVIDER, 15000, 1, listener);
+	// Log.i("TABA", "onKeyDown 3");
+	// new TabMainAsyncTask().execute();
+	// Log.i("TABA", "onKeyDown 4");
 	// }
 	// return true;
 	// }
 	// return super.onKeyDown(keyCode, event);
 	// }
-	//
+
 	// @Override
 	// public boolean onKeyLongPress(int keyCode, KeyEvent event) {
 	// if(event.getKeyCode() == KeyEvent.KEYCODE_POWER){
@@ -157,8 +174,8 @@ public class TabActionBarActivity extends Activity {
 		}
 	}
 
-	private class SMSAsynTask extends AsyncTask<Double, Void, Void> implements
-			LocationListener {
+	private class TabMainAsyncTask extends AsyncTask<Double, Void, Void>
+			implements LocationListener {
 		Geocoder geocoder;
 		List<Address> addresses;
 
@@ -167,7 +184,7 @@ public class TabActionBarActivity extends Activity {
 			double latitude;
 			double longitude;
 
-			Log.i("TABA", "TABA SMSAsyncTask");
+			Log.i("TABA", "TABA TabMainAsyncTask");
 
 			// getting the location coordinates
 			latitude = location.getLatitude();
@@ -205,7 +222,7 @@ public class TabActionBarActivity extends Activity {
 				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				Log.e("TABA", e.getMessage());
+				Log.e("TABA", "Are you the one? " + e.getMessage());
 			}
 		}
 
@@ -229,7 +246,7 @@ public class TabActionBarActivity extends Activity {
 
 		@Override
 		protected Void doInBackground(Double... params) {
-			Log.i("TABA", "TABA SMSAsyncTask DIB");
+			Log.i("TABA", "TABA TabMainAsyncTask DIB");
 			return null;
 		}
 
@@ -242,12 +259,17 @@ public class TabActionBarActivity extends Activity {
 				SmsManager smsManager = SmsManager.getDefault();
 				smsManager.sendTextMessage(number, null, "\n" + str + "\n",
 						null, null);
+				Log.i("SOS", number);
 				smsManager.sendTextMessage(number2, null, "\n" + str + "\n",
 						null, null);
+				Log.i("SOS", number2);
 				smsManager.sendTextMessage(number3, null, "\n" + str + "\n",
 						null, null);
+				Log.i("SOS", number3);
 				Toast.makeText(getApplicationContext(), "SMS Sent!",
 						Toast.LENGTH_LONG).show();
+				Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+				v.vibrate(500);
 
 			} catch (Exception e) {
 				Toast.makeText(getApplicationContext(),

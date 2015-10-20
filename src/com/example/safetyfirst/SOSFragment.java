@@ -17,6 +17,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -98,7 +99,7 @@ public class SOSFragment extends Fragment implements OnClickListener {
 					Context.LOCATION_SERVICE);
 			Log.i("SOS", "2");
 			locationManager.requestLocationUpdates(
-					LocationManager.GPS_PROVIDER, 5000, 1, listener);
+					LocationManager.GPS_PROVIDER, 15000, 1, listener);
 			Log.i("SOS", "3");
 			new SMSAsynTask().execute();
 			Log.i("SOS", "4");
@@ -116,8 +117,8 @@ public class SOSFragment extends Fragment implements OnClickListener {
 		// new SMSAsynTask().execute();
 		listener = new SMSAsynTask();
 		Log.i("SOS", "custkey 1");
-		locationManager = (LocationManager) ctx.getSystemService(
-				Context.LOCATION_SERVICE);
+		locationManager = (LocationManager) ctx
+				.getSystemService(Context.LOCATION_SERVICE);
 		Log.i("SOS", "custkey 2");
 		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
 				5000, 1, listener);
@@ -170,9 +171,8 @@ public class SOSFragment extends Fragment implements OnClickListener {
 					Toast.makeText(getActivity(), "geocoder not present",
 							Toast.LENGTH_SHORT).show();
 				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				Log.e("SOS", e.getMessage());
+			} catch (Exception e) {
+				Log.e("SOS", "Are you the one?? " + e.getMessage());
 			}
 		}
 
@@ -209,13 +209,18 @@ public class SOSFragment extends Fragment implements OnClickListener {
 				SmsManager smsManager = SmsManager.getDefault();
 				smsManager.sendTextMessage(number, null, "\n" + str + "\n",
 						null, null);
+				Log.i("SOS", number);
 				smsManager.sendTextMessage(number2, null, "\n" + str + "\n",
 						null, null);
+				Log.i("SOS", number2);
 				smsManager.sendTextMessage(number3, null, "\n" + str + "\n",
 						null, null);
+				Log.i("SOS", number3);
 				Toast.makeText(getActivity(), "SMS Sent!", Toast.LENGTH_LONG)
 						.show();
-
+				Vibrator v = (Vibrator) getActivity().getSystemService(
+						Context.VIBRATOR_SERVICE);
+				v.vibrate(500);
 			} catch (Exception e) {
 				Toast.makeText(getActivity(),
 						"SMS faild, please try again later!", Toast.LENGTH_LONG)
