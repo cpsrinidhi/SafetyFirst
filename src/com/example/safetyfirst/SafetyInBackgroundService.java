@@ -77,7 +77,8 @@ public class SafetyInBackgroundService extends Service {
 				// get the formatted address form the location coordinates and
 				// extract the street, city, state and the country from the
 				// formatted address
-				geocoder = new Geocoder(SafetyInBackgroundService.this, Locale.ENGLISH);
+				geocoder = new Geocoder(SafetyInBackgroundService.this,
+						Locale.ENGLISH);
 				addresses = geocoder.getFromLocation(latitude, longitude, 1);
 				StringBuilder str = new StringBuilder();
 				if (Geocoder.isPresent()) {
@@ -87,7 +88,7 @@ public class SafetyInBackgroundService extends Service {
 					String city = returnAddress.getCountryName();
 					String region_code = returnAddress.getCountryCode();
 					String zipcode = returnAddress.getPostalCode();
-					String link = "In Background IF Click this : " + '\n'
+					String link = "Click this : " + '\n'
 							+ "http://maps.google.com/maps?q=" + latitude + ","
 							+ longitude;
 					str.append(street + '\n');
@@ -132,7 +133,8 @@ public class SafetyInBackgroundService extends Service {
 				// get the formatted address form the location coordinates and
 				// extract the street, city, state and the country from the
 				// formatted address
-				geocoder = new Geocoder(SafetyInBackgroundService.this, Locale.ENGLISH);
+				geocoder = new Geocoder(SafetyInBackgroundService.this,
+						Locale.ENGLISH);
 				addresses = geocoder.getFromLocation(latitude, longitude, 1);
 				StringBuilder str = new StringBuilder();
 				if (Geocoder.isPresent()) {
@@ -142,7 +144,7 @@ public class SafetyInBackgroundService extends Service {
 					String city = returnAddress.getCountryName();
 					String region_code = returnAddress.getCountryCode();
 					String zipcode = returnAddress.getPostalCode();
-					String link = "In Background else Click this : " + '\n'
+					String link = "Click this : " + '\n'
 							+ "http://maps.google.com/maps?q=" + latitude + ","
 							+ longitude;
 					str.append(street + '\n');
