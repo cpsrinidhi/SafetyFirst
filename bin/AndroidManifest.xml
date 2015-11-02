@@ -131,9 +131,9 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.example.safetyfirst.SafetyInBackgroundReceiver" />
+<!--         <receiver android:name="com.example.safetyfirst.SafetyInBackgroundReceiver" />
 
-        <service android:name="com.example.safetyfirst.SafetyInBackgroundService" />
+        <service android:name="com.example.safetyfirst.SafetyInBackgroundService" /> -->
     </application>
 
 </manifest>

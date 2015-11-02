@@ -1,30 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/tab2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:background="@color/black"
     >
+
+ 
+
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="false"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentTop="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:alpha="0.5"
         android:scaleType="centerCrop"
         android:src="@drawable/uta_copy" />
-    
+
+       <TextView
+           android:id="@+id/textView1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_alignParentTop="true"
+           android:layout_marginLeft="26dp"
+           android:layout_marginTop="34dp"
+           android:text="Current Location"
+            android:textColor="#FFFFFF" />
+
+       <TextView
+           android:id="@+id/textView2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignLeft="@+id/textView1"
+           android:layout_alignRight="@+id/textView1"
+           android:layout_below="@+id/textView1"
+           android:layout_marginTop="48dp"
+           android:text="Destination"
+            android:textColor="#FFFFFF" />
+
+       <Button
+           android:id="@+id/button1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerHorizontal="true"
+           android:layout_centerVertical="true"
+           android:text="Request Ride"
+            android:textColor="#FFFFFF" />
+
+       <Button
+           android:id="@+id/button2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/button1"
+           android:layout_centerHorizontal="true"
+           android:layout_marginTop="21dp"
+           android:text="Cancel" 
+            android:textColor="#FFFFFF"/>
+
+       <Spinner
+           android:id="@+id/spinner1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_above="@+id/textView2"
+           android:layout_alignTop="@+id/textView1" />
  
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Coming Soon" 
-        android:textColor="#FFFFFF" />
- 
-</LinearLayout>
+</RelativeLayout>

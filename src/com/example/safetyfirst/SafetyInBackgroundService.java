@@ -91,6 +91,7 @@ public class SafetyInBackgroundService extends Service {
 					String link = "Click this : " + '\n'
 							+ "http://maps.google.com/maps?q=" + latitude + ","
 							+ longitude;
+					str.append("I am in trouble please help." + '\n' + '\n');
 					str.append(street + '\n');
 					str.append(localityString + '\n');
 					str.append(city + '\n' + region_code + '\n');
@@ -147,6 +148,7 @@ public class SafetyInBackgroundService extends Service {
 					String link = "Click this : " + '\n'
 							+ "http://maps.google.com/maps?q=" + latitude + ","
 							+ longitude;
+					str.append("I am in trouble please help." + '\n' + '\n');
 					str.append(street + '\n');
 					str.append(localityString + '\n');
 					str.append(city + '\n' + region_code + '\n');
