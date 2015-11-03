@@ -3,67 +3,84 @@
     android:id="@+id/tab2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    >
+    android:orientation="vertical"
+    android:background="@drawable/uta_copy"
+    
+     >
 
- 
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@+id/editText1"
+        android:text="Pickup Location" 
+        android:textColor="#FFFFFF" 
+        android:textStyle="bold"/>
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="11dp"
+        android:ems="10"
+        android:textColor="#FFFFFF" 
+        android:textStyle="bold" >
+
+        <requestFocus />
+    </EditText>
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignRight="@+id/editText1"
+        android:ems="10"
+        android:textColor="#FFFFFF" 
+        android:textStyle="bold" />
+
+    <AnalogClock
+        android:id="@+id/analogClock1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:alpha="0.5"
-        android:scaleType="centerCrop"
-        android:src="@drawable/uta_copy" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
 
-       <TextView
-           android:id="@+id/textView1"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_alignParentLeft="true"
-           android:layout_alignParentTop="true"
-           android:layout_marginLeft="26dp"
-           android:layout_marginTop="34dp"
-           android:text="Current Location"
-            android:textColor="#FFFFFF" />
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/editText2"
+        android:layout_marginTop="23dp"
+        android:text="Cancel Ride"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 
-       <TextView
-           android:id="@+id/textView2"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_alignLeft="@+id/textView1"
-           android:layout_alignRight="@+id/textView1"
-           android:layout_below="@+id/textView1"
-           android:layout_marginTop="48dp"
-           android:text="Destination"
-            android:textColor="#FFFFFF" />
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button1"
+        android:text="Request Ride"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 
-       <Button
-           android:id="@+id/button1"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_centerHorizontal="true"
-           android:layout_centerVertical="true"
-           android:text="Request Ride"
-            android:textColor="#FFFFFF" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText1"
+        android:layout_marginTop="27dp"
+        android:layout_marginLeft="10dp"
+        android:text="Drop Location"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 
-       <Button
-           android:id="@+id/button2"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_below="@+id/button1"
-           android:layout_centerHorizontal="true"
-           android:layout_marginTop="21dp"
-           android:text="Cancel" 
-            android:textColor="#FFFFFF"/>
-
-       <Spinner
-           android:id="@+id/spinner1"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_above="@+id/textView2"
-           android:layout_alignTop="@+id/textView1" />
- 
 </RelativeLayout>
+        

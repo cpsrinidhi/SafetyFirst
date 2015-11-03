@@ -120,9 +120,29 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextSign"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="63dp"
         android:text="@string/register"
-        android:layout_centerInParent="true"
         android:textColor="#FFFFFF" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="14dp"
+        android:text="Student"
+        android:textColor="@color/black"
+        android:checked= "true"/>
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/imageView1"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="30dp"
+        android:text="Police"
+        android:textColor="@color/black" />
 
 </RelativeLayout>

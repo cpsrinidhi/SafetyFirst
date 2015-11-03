@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
  
 public class PickmeFragment extends Fragment {
  
@@ -14,7 +15,7 @@ public class PickmeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
  
-        return (LinearLayout) inflater.inflate(R.layout.activity_tab_pickme, container, false);
+        return (RelativeLayout) inflater.inflate(R.layout.activity_tab_pickme, container, false);
     }
  
 }

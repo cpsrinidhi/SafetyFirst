@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,8 +20,9 @@ public class LoginActivity extends Activity implements OnClickListener {
 	Intent i;
 	EditText userName, password;
 	Button login, forgotPassword, signUp;
-	public static String URL_LOGIN = "http://192.168.0.102:8888/android_login_api/login.php";
-	public static String URL_REGISTER = "http://192.168.0.102:8888/android_login_api/register.php";
+
+	CheckBox chkStu;
+	CheckBox chkPol;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,31 @@ public class LoginActivity extends Activity implements OnClickListener {
 		login.setOnClickListener(this);
 		forgotPassword.setOnClickListener(this);
 		signUp.setOnClickListener(this);
+
+		chkStu = (CheckBox) findViewById(R.id.checkBox1);
+		chkPol = (CheckBox) findViewById(R.id.checkBox2);
+		chkStu.setOnClickListener(checkBoxStuClicked);
+		chkPol.setOnClickListener(checkBoxPolClicked);
 	}
+
+	View.OnClickListener checkBoxStuClicked = new View.OnClickListener() {
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			chkPol.setChecked(false);
+			chkStu.setChecked(true);
+		}
+	};
+	View.OnClickListener checkBoxPolClicked = new View.OnClickListener() {
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			chkPol.setChecked(true);
+			chkStu.setChecked(false);
+		}
+	};
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -59,40 +85,54 @@ public class LoginActivity extends Activity implements OnClickListener {
 	}
 
 	@SuppressLint("ShowToast")
-	private void checkLogin(String email, String password){
-		if(validateEmail(email)){
-//			RequestParams param = new RequestParams();
-//			param.put("email", email);
-//			param.put("password", password);
-//			invokeLoginWS(param);
+	private void checkLogin(String email, String password) {
+		if (validateEmail(email)) {
+			// RequestParams param = new RequestParams();
+			// param.put("email", email);
+			// param.put("password", password);
+			// invokeLoginWS(param);
 		}
 	}
-//	public void invokeLoginWS(RequestParams param){
-//		AsyncHttpClient client = new AsyncHttpClient();
-//        client.get("http://192.168.2.2:9999/useraccount/login/dologin",param ,new AsyncHttpResponseHandler(){
-//        	public void onSuccess(String response){
-//        		try{
-//        			JSONObject obj = new JSONObject(response);
-//        			if(obj["ERROR"]==true){
-//        				//Pop out an dialogue with text = " Login failed"
-//        			}else if(obj["ERROR"]==true){
-//        				//successful login
-//        				//navigate to home activity;
-//        			}
-//        		}catch(JSONException e){
-//        			System.out.println("JSONException e:"+e);
-//        		}
-//        	}
-//        	
-//        });
-//		
-//	}
+
+	// public void invokeLoginWS(RequestParams param){
+	// AsyncHttpClient client = new AsyncHttpClient();
+	// client.get("http://192.168.2.2:9999/useraccount/login/dologin",param ,new
+	// AsyncHttpResponseHandler(){
+	// public void onSuccess(String response){
+	// try{
+	// JSONObject obj = new JSONObject(response);
+	// if(obj["ERROR"]==true){
+	// //Pop out an dialogue with text = " Login failed"
+	// }else if(obj["ERROR"]==true){
+	// //successful login
+	// //navigate to home activity;
+	// }
+	// }catch(JSONException e){
+	// System.out.println("JSONException e:"+e);
+	// }
+	// }
+	//
+	// });
+	//
+	// }
 
 	private boolean validateEmail(String email) {
 		final String coDomain = "mavs.uta.edu";
 		final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 				+ Pattern.quote(coDomain) + "$";
 		return email.matches(EMAIL_PATTERN);
+	}
+
+	public void invalideEmail() {
+
+	}
+
+	public void successfulLogin() {
+
+	}
+
+	public void invalidCredential() {
+
 	}
 
 	@Override
@@ -108,13 +148,21 @@ public class LoginActivity extends Activity implements OnClickListener {
 			EditText uta_id_ET = (EditText) findViewById(R.id.editTextUtaID);
 			String email_id_et = uta_id_ET.getText().toString();
 			System.out.println(email_id_et);
-			
+
 			EditText uta_pass_ET = (EditText) findViewById(R.id.editTextPassword);
 			String pass_uta_et = uta_pass_ET.getText().toString();
 			System.out.println(pass_uta_et);
 
+			String isstudent;
+			if (chkStu.isChecked()) {
+				isstudent = "1";
+			} else {
+				isstudent = "0";
+			}
+
 			if (!email_id_et.isEmpty() && !pass_uta_et.isEmpty()) {
-				checkLogin(email_id_et, pass_uta_et);
+				new Login(LoginActivity.this).execute(email_id_et, pass_uta_et,
+						isstudent);
 			}
 			finish();
 			break;
