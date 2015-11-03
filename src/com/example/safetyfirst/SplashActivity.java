@@ -2,6 +2,7 @@ package com.example.safetyfirst;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
@@ -39,9 +40,21 @@ public class SplashActivity extends Activity {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				} finally {
-					Intent i = new Intent(
-							"com.example.safetyfirst.LOGINACTIVITY");
-					startActivity(i);
+					
+					SharedPreferences prefs = getSharedPreferences("safetyfirstpreference", MODE_PRIVATE); 
+					System.out.println("meet is here");
+					String restoredText = prefs.getString("login", null);
+					
+					if (restoredText == "true") {
+						System.out.println("google is here");
+						Intent i = new Intent("com.example.safetyfirst.TABACTIONBARACTIVITY");
+						startActivity(i);
+					}else{
+						Intent i = new Intent(
+								"com.example.safetyfirst.LOGINACTIVITY");
+						startActivity(i);
+					}
+					
 				}
 			}
 		};

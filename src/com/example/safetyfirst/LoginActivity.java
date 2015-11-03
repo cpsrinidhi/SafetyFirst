@@ -4,7 +4,9 @@ import java.util.regex.Pattern;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -83,6 +85,16 @@ public class LoginActivity extends Activity implements OnClickListener {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	public void storeInSharedPreference(String email,String fname,String lname,String isstudent){
+		SharedPreferences.Editor editor = getSharedPreferences("safetyfirstpreference", MODE_PRIVATE).edit();
+    	
+   	 editor.putString("email", email);
+   	editor.putString("fname", fname);
+   	editor.putString("lname", lname);
+   	editor.putString("isstudent", isstudent);
+   	editor.putString("login", "true");
+   	 editor.commit();
+	}
 
 	@SuppressLint("ShowToast")
 	private void checkLogin(String email, String password) {
@@ -124,14 +136,33 @@ public class LoginActivity extends Activity implements OnClickListener {
 	}
 
 	public void invalideEmail() {
+//		Toast.makeText(getApplicationContext(),
+//				"Invalid Email",
+//				Toast.LENGTH_SHORT).show();
+		
+		LoginActivity.this.runOnUiThread(new Runnable(){
+			public void run(){
+				Toast.makeText(getApplicationContext(),"Invalid Email",Toast.LENGTH_SHORT).show();
+			}
+		});
 
 	}
 
 	public void successfulLogin() {
+		i = new Intent("com.example.safetyfirst.TABACTIONBARACTIVITY");
+		System.out.println("coming to succesfullogin");
+		startActivity(i);
 
 	}
 
 	public void invalidCredential() {
+		LoginActivity.this.runOnUiThread(new Runnable(){
+			public void run(){
+				Toast.makeText(getApplicationContext(),"Invalid Credentials",Toast.LENGTH_SHORT).show();
+			}
+		});
+		
+		
 
 	}
 
@@ -141,18 +172,24 @@ public class LoginActivity extends Activity implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.buttonLogin:
 
-			i = new Intent("com.example.safetyfirst.TABACTIONBARACTIVITY");
-			System.out.println("Value of i" + i);
-			startActivity(i);
 
 			EditText uta_id_ET = (EditText) findViewById(R.id.editTextUtaID);
 			String email_id_et = uta_id_ET.getText().toString();
-			System.out.println(email_id_et);
+			//System.out.println(email_id_et);
 
 			EditText uta_pass_ET = (EditText) findViewById(R.id.editTextPassword);
 			String pass_uta_et = uta_pass_ET.getText().toString();
-			System.out.println(pass_uta_et);
-
+			//System.out.println(pass_uta_et);
+			if(email_id_et.isEmpty()){
+				Toast.makeText(getApplicationContext(),
+						"Enter Username!",
+						Toast.LENGTH_SHORT).show();
+			}
+			else if(pass_uta_et.isEmpty()){
+				Toast.makeText(getApplicationContext(),
+						"Enter the password!",
+						Toast.LENGTH_SHORT).show();
+			}
 			String isstudent;
 			if (chkStu.isChecked()) {
 				isstudent = "1";
@@ -163,8 +200,9 @@ public class LoginActivity extends Activity implements OnClickListener {
 			if (!email_id_et.isEmpty() && !pass_uta_et.isEmpty()) {
 				new Login(LoginActivity.this).execute(email_id_et, pass_uta_et,
 						isstudent);
+				
 			}
-			finish();
+			
 			break;
 
 		case R.id.buttonForgotPassword:

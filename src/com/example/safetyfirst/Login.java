@@ -12,11 +12,13 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONObject;
+import org.json.*;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.graphics.AvoidXfermode.Mode;
 import android.os.AsyncTask;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
@@ -61,10 +63,21 @@ public class Login  extends AsyncTask<String,Void,String>{
 	               break;
 	            }
 	            String convertedSb = sb.toString();
+//	            System.out.println("srinidhi="+sb);
 	            JSONObject reader1 = new JSONObject(convertedSb);
-	            System.out.println(sb.toString());
+//	            System.out.println(sb.toString());
 	            if(reader1.get("error").toString()=="false"){
+	            	
+//	            	JSONArray array = reader1.getJSONArray("user");
+//	            	System.out.println("google work here");
+//	            	System.out.println("array value here"+array);
+//	            	for(int i=0;i<array.length();i++){
+//	            		System.out.println(array.getJSONObject(i).getString("email"));
+//	            	}
+//	            	System.out.println("in login should go to success");
 	            	signupactivityobj.successfulLogin();
+	            
+	            	
 	            }else{
 	            	signupactivityobj.invalidCredential();
 	            }
