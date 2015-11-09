@@ -3,6 +3,7 @@ package com.example.safetyfirst;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class SignUpActivity extends Activity {
 	
@@ -74,6 +76,8 @@ public class SignUpActivity extends Activity {
 //				doSignUp(f_name_string,l_name_string,ut_email_string,password_string);
 				new SignUp(SignUpActivity.this).execute(f_name_string,l_name_string,ut_email_string,password_string,isChecked);
 				
+			}else{
+				entervaluesinfields();
 			}
 	    }
 	    
@@ -86,42 +90,35 @@ public class SignUpActivity extends Activity {
 	}
 	public void showSuccessfulRegistration(){
 		System.out.println("golmal");
-		AlertDialog alertDialog = new AlertDialog.Builder(SignUpActivity.this).create();
-		alertDialog.setTitle("Success");
-		alertDialog.setMessage("Successful Login.");
-		alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-		    new DialogInterface.OnClickListener() {
-		        public void onClick(DialogInterface dialog, int which) {
-		            dialog.dismiss();
-		        }
-		    });
-		alertDialog.show();
+		SignUpActivity.this.runOnUiThread(new Runnable(){
+			public void run(){
+				Toast.makeText(getApplicationContext(),"Successful Registration",Toast.LENGTH_SHORT).show();
+			}
+		});
+		Intent i = new Intent(
+				"com.example.safetyfirst.LOGINACTIVITY");
+		startActivity(i);
 	}
 	public void userAlreadyExists(){
-		System.out.println("mast chene");
-		AlertDialog alertDialog = new AlertDialog.Builder(SignUpActivity.this).create();
-		alertDialog.setTitle("Problem");
-		alertDialog.setMessage("Email address already exists.");
-		alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-		    new DialogInterface.OnClickListener() {
-		        public void onClick(DialogInterface dialog, int which) {
-		            dialog.dismiss();
-		        }
-		    });
-		alertDialog.show();
+		SignUpActivity.this.runOnUiThread(new Runnable(){
+			public void run(){
+				Toast.makeText(getApplicationContext(),"User already exist! Try login.",Toast.LENGTH_SHORT).show();
+			}
+		});
+	}
+	public void entervaluesinfields(){
+		SignUpActivity.this.runOnUiThread(new Runnable(){
+			public void run(){
+				Toast.makeText(getApplicationContext(),"Enter values in empty fields",Toast.LENGTH_SHORT).show();
+			}
+		});
 	}
 	public void invalideEmail(){
-		System.out.println("123");
-		AlertDialog alertDialog = new AlertDialog.Builder(SignUpActivity.this).create();
-		alertDialog.setTitle("Problem");
-		alertDialog.setMessage("Please enter valid email address.");
-		alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-		    new DialogInterface.OnClickListener() {
-		        public void onClick(DialogInterface dialog, int which) {
-		            dialog.dismiss();
-		        }
-		    });
-		alertDialog.show();
+		SignUpActivity.this.runOnUiThread(new Runnable(){
+			public void run(){
+				Toast.makeText(getApplicationContext(),"Invalid Email",Toast.LENGTH_SHORT).show();
+			}
+		});
 	}
 
 	@Override

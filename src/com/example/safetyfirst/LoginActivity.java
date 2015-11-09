@@ -88,12 +88,12 @@ public class LoginActivity extends Activity implements OnClickListener {
 	public void storeInSharedPreference(String email,String fname,String lname,String isstudent){
 		SharedPreferences.Editor editor = getSharedPreferences("safetyfirstpreference", MODE_PRIVATE).edit();
     	
-   	 editor.putString("email", email);
-   	editor.putString("fname", fname);
-   	editor.putString("lname", lname);
-   	editor.putString("isstudent", isstudent);
-   	editor.putString("login", "true");
-   	 editor.commit();
+   	 	editor.putString("email", email);
+   	 	editor.putString("fname", fname);
+   	 	editor.putString("lname", lname);
+   	 	editor.putString("isstudent", isstudent);
+   	 	editor.putString("login", "true");
+   	 	editor.commit();
 	}
 
 	@SuppressLint("ShowToast")

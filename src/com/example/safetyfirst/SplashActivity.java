@@ -40,12 +40,11 @@ public class SplashActivity extends Activity {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				} finally {
-					
 					SharedPreferences prefs = getSharedPreferences("safetyfirstpreference", MODE_PRIVATE); 
-					System.out.println("meet is here");
-					String restoredText = prefs.getString("login", null);
 					
-					if (restoredText == "true") {
+					String restoredText = (String)prefs.getString("login", "");
+					String data = "true";
+					if (data.compareTo(restoredText)==0) {
 						System.out.println("google is here");
 						Intent i = new Intent("com.example.safetyfirst.TABACTIONBARACTIVITY");
 						startActivity(i);

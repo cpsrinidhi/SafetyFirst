@@ -67,14 +67,12 @@ public class Login  extends AsyncTask<String,Void,String>{
 	            JSONObject reader1 = new JSONObject(convertedSb);
 //	            System.out.println(sb.toString());
 	            if(reader1.get("error").toString()=="false"){
+	            	JSONObject userobj = reader1.getJSONObject("user");
 	            	
-//	            	JSONArray array = reader1.getJSONArray("user");
-//	            	System.out.println("google work here");
-//	            	System.out.println("array value here"+array);
-//	            	for(int i=0;i<array.length();i++){
-//	            		System.out.println(array.getJSONObject(i).getString("email"));
-//	            	}
-//	            	System.out.println("in login should go to success");
+	            	String useremail=(String)userobj.get("email");
+	            	String usrefname = (String)userobj.get("fname");
+	            	String userlname = (String)userobj.get("lname");
+	            	signupactivityobj.storeInSharedPreference(useremail, usrefname, userlname, isstudent);
 	            	signupactivityobj.successfulLogin();
 	            
 	            	
