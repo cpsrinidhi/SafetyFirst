@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,6 +34,9 @@ public class SignUpActivity extends Activity {
 		chkPol.setOnClickListener(checkBoxPolClicked);
 		register = (Button) findViewById(R.id.buttonRegister);
 		register.setOnClickListener(registerHandler);
+		
+		Intent intent = new Intent(this, RegistrationIntentService.class);
+        startService(intent);
 	}
 	View.OnClickListener checkBoxStuClicked = new View.OnClickListener() {
 		
@@ -55,6 +59,13 @@ public class SignUpActivity extends Activity {
 	View.OnClickListener registerHandler = new View.OnClickListener() {
 	    public void onClick(View v) {
 	      // it was the 1st button
+	    	
+	    	SharedPreferences prefs = getSharedPreferences("safetyfirstpreference", MODE_PRIVATE); 
+			
+			String deviceToken = (String)prefs.getString("deviceToken", "");
+			
+//			System.out.println("Device Token in sign up:"+deviceToken);
+			
 	    	System.out.println("Register Button clicked");
 			String f_name_string = f_name.getText().toString();
 			
@@ -74,7 +85,7 @@ public class SignUpActivity extends Activity {
 			
 			if(!f_name_string.isEmpty() && !l_name_string.isEmpty() && !ut_email_string.isEmpty() && !password_string.isEmpty()){
 //				doSignUp(f_name_string,l_name_string,ut_email_string,password_string);
-				new SignUp(SignUpActivity.this).execute(f_name_string,l_name_string,ut_email_string,password_string,isChecked);
+				new SignUp(SignUpActivity.this).execute(f_name_string,l_name_string,ut_email_string,password_string,deviceToken,isChecked);
 				
 			}else{
 				entervaluesinfields();

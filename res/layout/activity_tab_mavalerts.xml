@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
-    
+
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="match_parent"
@@ -9,10 +9,9 @@
         android:layout_alignParentBottom="false"
         android:layout_alignParentRight="false"
         android:layout_alignParentTop="false"
-        android:alpha="0.5"
+        android:alpha="0.90"
         android:scaleType="centerCrop"
-        android:src="@drawable/uta_copy" />
-    
+        android:src="@drawable/planet" />
 
     <ListView
         android:id="@+id/listViewNotifications"
@@ -21,7 +20,5 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" >
     </ListView>
-    
-    
 
 </RelativeLayout>

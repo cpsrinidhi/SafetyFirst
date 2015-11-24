@@ -23,10 +23,10 @@ public class ParseApplication extends Application{
 	public void onCreate(){
 		super.onCreate();
 		
-		Parse.initialize(this, "yw1ILZAX2aLxeeYFTyIbFUIhWldR3eVpxCQxTFy5", "bLIPHOIKWjlLFMqmcgw2x8VhN2wgf5UKlkUTqJMH" );
-		ParseUser.enableAutomaticUser();
+		Parse.initialize(this, "3yQn8owdssFweahpwExq7aEVzOzChwiAZOoHqr6C", "5rgMHT5SMUW2RB4VBba2pURZAoEWf1rFtbZyNWmL" );
+		/*ParseUser.enableAutomaticUser();
 		ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser());
-		
+		*/
 		PushService.setDefaultPushCallback(this, DetailsOfNotificationActivity.class);
 		ParseInstallation.getCurrentInstallation().add("channels", value);
 		ParseInstallation.getCurrentInstallation().saveInBackground();

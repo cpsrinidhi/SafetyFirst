@@ -35,6 +35,7 @@ public class Login  extends AsyncTask<String,Void,String>{
 		String utaemail = (String)arg0[0];
 		String password = (String)arg0[1];
 		String isstudent = (String)arg0[2];
+		String deviceToken = (String)arg0[3];
 		
 		if(validateEmail(utaemail)){
 			
@@ -48,6 +49,8 @@ public class Login  extends AsyncTask<String,Void,String>{
 				+ "=" + URLEncoder.encode(password, "UTF-8");
 				data += "&" + URLEncoder.encode("isstudent", "UTF-8") 
 				+ "=" + URLEncoder.encode(isstudent, "UTF-8");
+				data += "&" + URLEncoder.encode("deviceToken", "UTF-8") 
+				+ "=" + URLEncoder.encode(deviceToken, "UTF-8");
 				URLConnection conn = url.openConnection();
 				conn.setDoOutput(true);
 				OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream()); 
@@ -74,7 +77,6 @@ public class Login  extends AsyncTask<String,Void,String>{
 	            	String userlname = (String)userobj.get("lname");
 	            	signupactivityobj.storeInSharedPreference(useremail, usrefname, userlname, isstudent);
 	            	signupactivityobj.successfulLogin();
-	            
 	            	
 	            }else{
 	            	signupactivityobj.invalidCredential();

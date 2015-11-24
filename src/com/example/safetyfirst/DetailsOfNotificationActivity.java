@@ -1,6 +1,7 @@
 package com.example.safetyfirst;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -37,7 +38,7 @@ public class DetailsOfNotificationActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.details_of_notification, menu);
+		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 
@@ -48,7 +49,11 @@ public class DetailsOfNotificationActivity extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
-			return true;
+			SharedPreferences settings = getSharedPreferences("safetyfirstpreference", 0);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.clear();
+            editor.commit();
+            finish();
 		}
 		return super.onOptionsItemSelected(item);
 	}

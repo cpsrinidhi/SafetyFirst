@@ -25,6 +25,7 @@ public class LoginActivity extends Activity implements OnClickListener {
 
 	CheckBox chkStu;
 	CheckBox chkPol;
+	int isStudent1= 1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,11 @@ public class LoginActivity extends Activity implements OnClickListener {
 		chkPol = (CheckBox) findViewById(R.id.checkBox2);
 		chkStu.setOnClickListener(checkBoxStuClicked);
 		chkPol.setOnClickListener(checkBoxPolClicked);
+		
+		System.out.println("In login activity");
+		
+		Intent intent = new Intent(this, RegistrationIntentService.class);
+        startService(intent);
 	}
 
 	View.OnClickListener checkBoxStuClicked = new View.OnClickListener() {
@@ -67,25 +73,8 @@ public class LoginActivity extends Activity implements OnClickListener {
 		}
 	};
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-	public void storeInSharedPreference(String email,String fname,String lname,String isstudent){
+	
+		public void storeInSharedPreference(String email,String fname,String lname,String isstudent){
 		SharedPreferences.Editor editor = getSharedPreferences("safetyfirstpreference", MODE_PRIVATE).edit();
     	
    	 	editor.putString("email", email);
@@ -149,9 +138,15 @@ public class LoginActivity extends Activity implements OnClickListener {
 	}
 
 	public void successfulLogin() {
-		i = new Intent("com.example.safetyfirst.TABACTIONBARACTIVITY");
-		System.out.println("coming to succesfullogin");
-		startActivity(i);
+		if(isStudent1==1){
+			i = new Intent("com.example.safetyfirst.TABACTIONBARACTIVITY");
+			System.out.println("coming to succesfullogin");
+			startActivity(i);
+		}else{
+			i = new Intent("com.example.safetyfirst.POLICEHOMEACTIVITY");
+			System.out.println("coming to succesfullogin");
+			startActivity(i);
+		}
 
 	}
 
@@ -171,10 +166,15 @@ public class LoginActivity extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.buttonLogin:
-
+			
+			SharedPreferences prefs = getSharedPreferences("safetyfirstpreference", MODE_PRIVATE); 
+			
+			String deviceToken = (String)prefs.getString("deviceToken", "");
+			
 
 			EditText uta_id_ET = (EditText) findViewById(R.id.editTextUtaID);
 			String email_id_et = uta_id_ET.getText().toString();
+			
 			//System.out.println(email_id_et);
 
 			EditText uta_pass_ET = (EditText) findViewById(R.id.editTextPassword);
@@ -193,23 +193,21 @@ public class LoginActivity extends Activity implements OnClickListener {
 			String isstudent;
 			if (chkStu.isChecked()) {
 				isstudent = "1";
+				isStudent1=1;
 			} else {
+				isStudent1=0;
 				isstudent = "0";
 			}
 
 			if (!email_id_et.isEmpty() && !pass_uta_et.isEmpty()) {
-				new Login(LoginActivity.this).execute(email_id_et, pass_uta_et,
-						isstudent);
+				new Login(LoginActivity.this).execute(email_id_et, pass_uta_et,isstudent,deviceToken);
 				
 			}
-			
 			break;
 
 		case R.id.buttonForgotPassword:
 			i = new Intent("com.example.safetyfirst.FORGOTPASSWORDACTIVITY");
 			startActivity(i);
-
-			finish();
 			break;
 
 		case R.id.buttonSignUp:
@@ -217,7 +215,6 @@ public class LoginActivity extends Activity implements OnClickListener {
 					Toast.LENGTH_LONG);
 			i = new Intent("com.example.safetyfirst.SIGNUPACTIVITY");
 			startActivity(i);
-			finish();
 			break;
 		}
 

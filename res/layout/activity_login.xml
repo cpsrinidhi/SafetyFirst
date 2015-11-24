@@ -2,118 +2,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.textViewSafetyFirst.LoginActivity" 
-    android:background="@color/black">
-    
+    tools:context="com.example.textViewSafetyFirst.LoginActivity" >
+
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_alignParentBottom="false"
         android:layout_alignParentRight="false"
         android:layout_alignParentTop="false"
-        android:alpha="0.5"
+        android:alpha="0.90"
         android:scaleType="centerCrop"
-        android:src="@drawable/uta_copy" />
-    
-
-    <TextView
-        android:id="@+id/textViewSafetyFirst"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
-        android:text="@string/safetyFirst"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF"  />
-
-    <TextView
-        android:id="@+id/textViewUtaID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textViewSafetyFirst"
-        android:layout_marginTop="50dp"
-        android:text="@string/utaID"
-        android:textColor="#FFFFFF" 
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <EditText
-        android:id="@+id/editTextUtaID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textViewUtaID"
-        android:layout_marginLeft="32dp"
-        android:textColor="#FFFFFF" 
-        android:layout_toRightOf="@+id/textViewUtaID"
-        android:ems="10"
-        android:hint="UTA Mail ID" >
-
-        <requestFocus />
-    </EditText>
-
-    <TextView
-        android:id="@+id/textViewPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textViewUtaID"
-        android:layout_below="@+id/textViewUtaID"
-        android:layout_marginTop="38dp"
-        android:text="@string/password"
-        android:textColor="#FFFFFF" 
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textViewPassword"
-        android:layout_alignLeft="@+id/editTextUtaID"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:textColor="#FFFFFF"  
-        android:hint="Password"/>
-
-    <Button
-        android:id="@+id/buttonSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/editTextPassword"
-        android:layout_below="@+id/buttonLogin"
-        android:layout_marginTop="62dp"
-        android:autoLink="all"
-        android:textColor="#FFFFFF" 
-        android:text="@string/signUp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="18sp" />
-
-    <Button
-        android:id="@+id/buttonForgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/buttonSignUp"
-        android:layout_alignBottom="@+id/buttonSignUp"
-        android:layout_alignLeft="@+id/textViewPassword"
-        android:autoLink="all"
-        android:textColor="#FFFFFF" 
-        android:text="@string/forgotPassword"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="18sp" />
+        android:src="@drawable/planet" />
 
     <CheckBox
         android:id="@+id/checkBox1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/buttonLogin"
-        android:text="Student"
+        android:layout_alignLeft="@+id/buttonForgotPassword"
+        android:layout_below="@+id/editTextUtaID"
+        android:layout_marginTop="113dp"
         android:checked="true"
-        android:textColor="#FFFFFF" />
+        android:text="Student"
+        android:textColor="#0000FF"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/buttonForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="19dp"
+        android:autoLink="all"
+        android:text="@string/forgotPassword"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/buttonLogin"
@@ -121,18 +47,78 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/checkBox1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="18dp"
         android:onClick="login"
         android:text="@string/login"
-        android:textColor="#FFFFFF" />
+        android:textStyle="bold" 
+        />
 
     <CheckBox
         android:id="@+id/checkBox2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/checkBox1"
         android:layout_alignBottom="@+id/checkBox1"
-        android:layout_toRightOf="@+id/buttonForgotPassword"
+        android:layout_alignLeft="@+id/buttonSignUp"
         android:text="Police"
-        android:textColor="#FFFFFF"  />
+        android:textColor="#0000FF"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/buttonSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonForgotPassword"
+        android:layout_alignBottom="@+id/buttonForgotPassword"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="35dp"
+        android:autoLink="all"
+        android:text="@string/signUp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/checkBox2"
+        android:layout_alignRight="@+id/editTextUtaID"
+        android:layout_marginBottom="30dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewSafetyFirst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="@string/safetyFirst"
+        android:textAllCaps="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#0000FF"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
+    <EditText
+        android:id="@+id/editTextUtaID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewSafetyFirst"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="79dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="UTA Mail ID"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
 
 </RelativeLayout>

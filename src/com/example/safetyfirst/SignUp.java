@@ -34,7 +34,8 @@ public class SignUp  extends AsyncTask<String,Void,String>{
 		String lname = (String)arg0[1];
 		String utaemail = (String)arg0[2];
 		String password = (String)arg0[3];
-		String isChecked = (String)arg0[4];
+		String deviceToken = (String)arg0[4];
+		String isChecked = (String)arg0[5];
 		System.out.println(fname+"-"+lname+"-"+utaemail+"-"+password);
 		
 		if(validateEmail(utaemail)){
@@ -53,6 +54,8 @@ public class SignUp  extends AsyncTask<String,Void,String>{
 				+ "=" + URLEncoder.encode(lname, "UTF-8");
 				data += "&" + URLEncoder.encode("isstudent", "UTF-8") 
 				+ "=" + URLEncoder.encode(isChecked, "UTF-8");
+				data += "&" + URLEncoder.encode("deviceToken", "UTF-8") 
+				+ "=" + URLEncoder.encode(deviceToken, "UTF-8");
 				URLConnection conn = url.openConnection();
 				conn.setDoOutput(true);
 				OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream()); 

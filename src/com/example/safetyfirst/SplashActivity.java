@@ -40,9 +40,12 @@ public class SplashActivity extends Activity {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				} finally {
+		            
+					
 					SharedPreferences prefs = getSharedPreferences("safetyfirstpreference", MODE_PRIVATE); 
 					
 					String restoredText = (String)prefs.getString("login", "");
+			        
 					String data = "true";
 					if (data.compareTo(restoredText)==0) {
 						System.out.println("google is here");
