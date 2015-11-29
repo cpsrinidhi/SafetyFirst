@@ -18,6 +18,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -65,9 +66,9 @@ public class TabActionBarActivity extends Activity {
 
 	}
 
-	// @Override
-	// public boolean dispatchKeyEvent(KeyEvent event) {
-	// if (event.getKeyCode() == KeyEvent.KEYCODE_POWER) {
+	 @Override
+	 public boolean dispatchKeyEvent(KeyEvent event) {
+	 if (event.getKeyCode() == KeyEvent.KEYCODE_POWER) {
 	// Toast.makeText(getApplicationContext(), "dispatch to SOS",
 	// Toast.LENGTH_LONG).show();
 	// Log.i("TABA", "dispatch to SOS");
@@ -76,91 +77,91 @@ public class TabActionBarActivity extends Activity {
 	// Toast.LENGTH_LONG).show();
 	// Log.i("TABA", "back to dispatch");
 
-	// LocationManager locationManager;
-	// LocationListener listener;
-	// listener = new TabMainAsyncTask();
-	// Log.i("TABA", "1");
-	// locationManager = (LocationManager)
-	// getSystemService(Context.LOCATION_SERVICE);
-	// Log.i("TABA", "2");
-	// locationManager.requestLocationUpdates(
-	// LocationManager.GPS_PROVIDER, 15000, 1, listener);
-	// Log.i("TABA", "3");
-	// new TabMainAsyncTask().execute();
-	// Log.i("TABA", "4");
-	//
-	// StringBuilder str = new StringBuilder();
-	// double[] gps = getGPS();
-	// String link = "Click this : " + '\n'
-	// + "http://maps.google.com/maps?q=" + gps[0] + "," + gps[1];
-	// str.append("I am in trouble please help." + '\n' + '\n');
-	// str.append(link + '\n');
-	//
-	// new TabMainAsyncTask().sendText(str);
-	// Log.i("SOS", "4");
-	//
-	// return true;
-	// }
-	// return super.dispatchKeyEvent(event);
-	// }
+	 LocationManager locationManager;
+	 LocationListener listener;
+	 listener = new TabMainAsyncTask();
+	 Log.i("TABA", "1");
+	 locationManager = (LocationManager)
+	 getSystemService(Context.LOCATION_SERVICE);
+	 Log.i("TABA", "2");
+	 locationManager.requestLocationUpdates(
+	 LocationManager.GPS_PROVIDER, 15000, 1, listener);
+	 Log.i("TABA", "3");
+	 new TabMainAsyncTask().execute();
+	 Log.i("TABA", "4");
+	
+	 StringBuilder str = new StringBuilder();
+	 double[] gps = getGPS();
+	 String link = "Click this : " + '\n'
+	 + "http://maps.google.com/maps?q=" + gps[0] + "," + gps[1];
+	 str.append("I am in trouble please help." + '\n' + '\n');
+	 str.append(link + '\n');
+	
+	 new TabMainAsyncTask().sendText(str);
+	 Log.i("SOS", "4");
+	
+	 return true;
+	 }
+	 return super.dispatchKeyEvent(event);
+	 }
 
-	// private double[] getGPS() {
-	// LocationManager lm = (LocationManager) getSystemService(
-	// Context.LOCATION_SERVICE);
-	// List<String> providers = lm.getProviders(true);
-	//
-	// // Loop over the array backwards, and if you get an accurate location,
-	// // then break out the loop
-	// Location l = null;
-	//
-	// for (int i = providers.size() - 1; i >= 0; i--) {
-	// l = lm.getLastKnownLocation(providers.get(i));
-	// if (l != null)
-	// break;
-	// }
-	//
-	// // getting the location coordinates
-	// double[] gps = new double[2];
-	// if (l != null) {
-	// gps[0] = l.getLatitude();
-	// gps[1] = l.getLongitude();
-	// }
-	// return gps;
-	// }
+	 private double[] getGPS() {
+	 LocationManager lm = (LocationManager) getSystemService(
+	 Context.LOCATION_SERVICE);
+	 List<String> providers = lm.getProviders(true);
+	
+	 // Loop over the array backwards, and if you get an accurate location,
+	 // then break out the loop
+	 Location l = null;
+	
+	 for (int i = providers.size() - 1; i >= 0; i--) {
+	 l = lm.getLastKnownLocation(providers.get(i));
+	 if (l != null)
+	 break;
+	 }
+	
+	 // getting the location coordinates
+	 double[] gps = new double[2];
+	 if (l != null) {
+	 gps[0] = l.getLatitude();
+	 gps[1] = l.getLongitude();
+	 }
+	 return gps;
+	 }
 
-	// @Override
-	// public boolean onKeyDown(int keyCode, KeyEvent event) {
-	// if (event.getKeyCode() == KeyEvent.KEYCODE_POWER) {
-	// event.startTracking();
-	// keyCount++;
-	// if (keyCount == 3) {
-	// LocationManager locationManager;
-	// LocationListener listener;
-	// listener = new TabMainAsyncTask();
-	// Log.i("TABA", "onKeyDown 1");
-	// locationManager = (LocationManager)
-	// getSystemService(Context.LOCATION_SERVICE);
-	// Log.i("TABA", "onKeyDown 2");
-	// locationManager.requestLocationUpdates(
-	// LocationManager.GPS_PROVIDER, 15000, 1, listener);
-	// Log.i("TABA", "onKeyDown 3");
-	// new TabMainAsyncTask().execute();
-	// Log.i("TABA", "onKeyDown 4");
-	// }
-	// return true;
-	// }
-	// return super.onKeyDown(keyCode, event);
-	// }
+//	 @Override
+//	 public boolean onKeyDown(int keyCode, KeyEvent event) {
+//	 if (event.getKeyCode() == KeyEvent.KEYCODE_POWER) {
+//	 event.startTracking();
+//	 keyCount++;
+//	 if (keyCount == 3) {
+//	 LocationManager locationManager;
+//	 LocationListener listener;
+//	 listener = new TabMainAsyncTask();
+//	 Log.i("TABA", "onKeyDown 1");
+//	 locationManager = (LocationManager)
+//	 getSystemService(Context.LOCATION_SERVICE);
+//	 Log.i("TABA", "onKeyDown 2");
+//	 locationManager.requestLocationUpdates(
+//	 LocationManager.GPS_PROVIDER, 15000, 1, listener);
+//	 Log.i("TABA", "onKeyDown 3");
+//	 new TabMainAsyncTask().execute();
+//	 Log.i("TABA", "onKeyDown 4");
+//	 }
+//	 return true;
+//	 }
+//	 return super.onKeyDown(keyCode, event);
+//	 }
 
-	// @Override
-	// public boolean onKeyLongPress(int keyCode, KeyEvent event) {
-	// if(event.getKeyCode() == KeyEvent.KEYCODE_POWER){
-	// Log.i("TABA", "Long press to SOS");
-	// new SOSFragment().customKeyDown();
-	// return true;
-	// }
-	// return super.onKeyLongPress(keyCode, event);
-	// }
+//	 @Override
+//	 public boolean onKeyLongPress(int keyCode, KeyEvent event) {
+//	 if(event.getKeyCode() == KeyEvent.KEYCODE_POWER){
+//	 Log.i("TABA", "Long press to SOS");
+//	 new SOSFragment().customKeyDown();
+//	 return true;
+//	 }
+//	 return super.onKeyLongPress(keyCode, event);
+//	 }
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
@@ -231,111 +232,111 @@ public class TabActionBarActivity extends Activity {
 		}
 	}
 
-//	private class TabMainAsyncTask extends AsyncTask<Double, Void, Void>
-//			implements LocationListener {
-//		Geocoder geocoder;
-//		List<Address> addresses;
-//
-//		@Override
-//		public void onLocationChanged(Location location) {
-//			double latitude;
-//			double longitude;
-//
-//			Log.i("TABA", "TABA TabMainAsyncTask");
-//
+	private class TabMainAsyncTask extends AsyncTask<Double, Void, Void>
+			implements LocationListener {
+		Geocoder geocoder;
+		List<Address> addresses;
+
+		@Override
+		public void onLocationChanged(Location location) {
+			double latitude;
+			double longitude;
+
+			Log.i("TABA", "TABA TabMainAsyncTask");
+
 			// getting the location coordinates
-//			latitude = location.getLatitude();
-//			longitude = location.getLongitude();
-//
-//			try {
-//				// formatting the coordinates to the formatted address
-//				geocoder = new Geocoder(getApplicationContext(), Locale.ENGLISH);
-//				addresses = geocoder.getFromLocation(latitude, longitude, 1);
-//				StringBuilder str = new StringBuilder();
-//				if (Geocoder.isPresent()) {
-//					// extracting the street, city, state and the country from
-//					// the formatted address
-//					Address returnAddress = addresses.get(0);
-//					String street = returnAddress.getThoroughfare();
-//					String localityString = returnAddress.getLocality();
-//					String city = returnAddress.getCountryName();
-//					String region_code = returnAddress.getCountryCode();
-//					String zipcode = returnAddress.getPostalCode();
-//					// appending the coordinates to the Google maps which are
-//					// sent as a part of the message
-//					String link = "Click this : " + '\n'
-//							+ "http://maps.google.com/maps?q=" + latitude + ","
-//							+ longitude;
-//					str.append("I am in trouble please help." + '\n' + '\n');
-//					str.append(street + '\n');
-//					str.append(localityString + '\n');
-//					str.append(city + '\n' + region_code + '\n');
-//					str.append(zipcode + '\n');
-//					str.append(link + '\n');
-//					// sendText(str);
-//				} else {
-//					Toast.makeText(getApplicationContext(),
-//							"geocoder not present", Toast.LENGTH_SHORT).show();
-//				}
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				Log.e("TABA", "Are you the one? " + e.getMessage());
-//			}
-//		}
-//
-//		@Override
-//		public void onStatusChanged(String provider, int status, Bundle extras) {
-//			// TODO Auto-generated method stub
-//
-//		}
-//
-//		@Override
-//		public void onProviderEnabled(String provider) {
-//			// TODO Auto-generated method stub
-//
-//		}
-//
-//		@Override
-//		public void onProviderDisabled(String provider) {
-//			// TODO Auto-generated method stub
-//
-//		}
-//
-//		@Override
-//		protected Void doInBackground(Double... params) {
-//			Log.i("TABA", "TABA TabMainAsyncTask DIB");
-//			return null;
-//		}
-//
-//		// using SmsManager API for sending messages
-//		// public void sendText(StringBuilder str) {
-//		// try {
-//		// String number = "+16823517498";
-//		// String number2 = "+19543971744";
-//		// String number3 = "+18174120353";
-//		// SmsManager smsManager = SmsManager.getDefault();
-//		// smsManager.sendTextMessage(number, null, "\n" + str + "\n",
-//		// null, null);
-//		// Log.i("SOS", number);
-//		// smsManager.sendTextMessage(number2, null, "\n" + str + "\n",
-//		// null, null);
-//		// Log.i("SOS", number2);
-//		// smsManager.sendTextMessage(number3, null, "\n" + str + "\n",
-//		// null, null);
-//		// Log.i("SOS", number3);
-//		// Toast.makeText(getApplicationContext(), "SMS Sent!",
-//		// Toast.LENGTH_LONG).show();
-//		// Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-//		// v.vibrate(500);
-//		//
-//		// } catch (Exception e) {
-//		// Toast.makeText(getApplicationContext(),
-//		// "SMS faild, please try again later!", Toast.LENGTH_LONG)
-//		// .show();
-//		// e.printStackTrace();
-//		// }
-//		// }
-//
-//	}
+			latitude = location.getLatitude();
+			longitude = location.getLongitude();
+
+			try {
+				// formatting the coordinates to the formatted address
+				geocoder = new Geocoder(getApplicationContext(), Locale.ENGLISH);
+				addresses = geocoder.getFromLocation(latitude, longitude, 1);
+				StringBuilder str = new StringBuilder();
+				if (Geocoder.isPresent()) {
+					// extracting the street, city, state and the country from
+					// the formatted address
+					Address returnAddress = addresses.get(0);
+					String street = returnAddress.getThoroughfare();
+					String localityString = returnAddress.getLocality();
+					String city = returnAddress.getCountryName();
+					String region_code = returnAddress.getCountryCode();
+					String zipcode = returnAddress.getPostalCode();
+					// appending the coordinates to the Google maps which are
+					// sent as a part of the message
+					String link = "Click this : " + '\n'
+							+ "http://maps.google.com/maps?q=" + latitude + ","
+							+ longitude;
+					str.append("I am in trouble please help." + '\n' + '\n');
+					str.append(street + '\n');
+					str.append(localityString + '\n');
+					str.append(city + '\n' + region_code + '\n');
+					str.append(zipcode + '\n');
+					str.append(link + '\n');
+					// sendText(str);
+				} else {
+					Toast.makeText(getApplicationContext(),
+							"geocoder not present", Toast.LENGTH_SHORT).show();
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				Log.e("TABA", "Are you the one? " + e.getMessage());
+			}
+		}
+
+		@Override
+		public void onStatusChanged(String provider, int status, Bundle extras) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void onProviderEnabled(String provider) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void onProviderDisabled(String provider) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		protected Void doInBackground(Double... params) {
+			Log.i("TABA", "TABA TabMainAsyncTask DIB");
+			return null;
+		}
+
+		// using SmsManager API for sending messages
+		 public void sendText(StringBuilder str) {
+		 try {
+		 String number = "+16823517498";
+		 String number2 = "+19543971744";
+		 String number3 = "+18174120353";
+		 SmsManager smsManager = SmsManager.getDefault();
+		 smsManager.sendTextMessage(number, null, "\n" + str + "\n",
+		 null, null);
+		 Log.i("SOS", number);
+		 smsManager.sendTextMessage(number2, null, "\n" + str + "\n",
+		 null, null);
+		 Log.i("SOS", number2);
+		 smsManager.sendTextMessage(number3, null, "\n" + str + "\n",
+		 null, null);
+		 Log.i("SOS", number3);
+//		 Toast.makeText(getApplicationContext(), "SMS Sent!",
+//		 Toast.LENGTH_LONG).show();
+		 Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+		 v.vibrate(500);
+		
+		 } catch (Exception e) {
+		 Toast.makeText(getApplicationContext(),
+		 "SMS faild, please try again later!", Toast.LENGTH_LONG)
+		 .show();
+		 e.printStackTrace();
+		 }
+		 }
+
+	}
 
 }

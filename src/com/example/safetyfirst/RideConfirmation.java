@@ -4,9 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class RideConfirmation extends Activity {
 
+	Button Button1;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -18,6 +22,10 @@ public class RideConfirmation extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.ride_confirmation, menu);
 		return true;
+	}
+	public void onClick(View v) {
+		Toast.makeText(this.getApplicationContext(),"Ride has been cancelled", Toast.LENGTH_SHORT).show();
+		
 	}
 
 	@Override

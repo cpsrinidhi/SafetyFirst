@@ -95,6 +95,8 @@ public class PickmeFragment extends Fragment implements OnClickListener {
 		Requestride.setOnClickListener(this);
 
 		Cancelride.setOnClickListener(this);
+		
+		Requestride.setEnabled(true);
 
 		return v;
 
@@ -133,6 +135,8 @@ public class PickmeFragment extends Fragment implements OnClickListener {
 			String et2 = Edittext2.getText().toString();
 
 			new RequestRide(PickmeFragment.this).execute(et1, et2);
+			
+			Requestride.setEnabled(false);
 
 			break;
 

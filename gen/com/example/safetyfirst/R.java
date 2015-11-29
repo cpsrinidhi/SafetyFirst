@@ -585,9 +585,9 @@ containing a value of this type.
         public static final int uta_copy=0x7f02003e;
     }
     public static final class id {
-        public static final int Cancelride=0x7f080049;
-        public static final int Requestride=0x7f080048;
-        public static final int action_settings=0x7f080057;
+        public static final int Cancelride=0x7f08004c;
+        public static final int Requestride=0x7f08004b;
+        public static final int action_settings=0x7f080058;
         public static final int adjust_height=0x7f080007;
         public static final int adjust_width=0x7f080008;
         public static final int android_pay=0x7f080028;
@@ -596,15 +596,16 @@ containing a value of this type.
         public static final int android_pay_light_with_border=0x7f080021;
         public static final int auto=0x7f080004;
         public static final int book_now=0x7f080018;
+        public static final int button1=0x7f080040;
         public static final int buttonAutoSelect=0x7f08002b;
         public static final int buttonForgotPassword=0x7f080038;
         public static final int buttonLogin=0x7f08003a;
-        public static final int buttonRegister=0x7f080040;
+        public static final int buttonRegister=0x7f080041;
         public static final int buttonResendPassword=0x7f080035;
-        public static final int buttonSOS=0x7f080050;
+        public static final int buttonSOS=0x7f080051;
         public static final int buttonSave=0x7f08002c;
         public static final int buttonSignUp=0x7f08003c;
-        public static final int buttonStopSos=0x7f080051;
+        public static final int buttonStopSos=0x7f080052;
         public static final int buyButton=0x7f080014;
         public static final int buy_now=0x7f080019;
         public static final int buy_with=0x7f08001a;
@@ -617,15 +618,15 @@ containing a value of this type.
         public static final int donate_with=0x7f08001c;
         public static final int donate_with_google=0x7f08001d;
         public static final int editEnterRegisteredId=0x7f080036;
-        public static final int editText1=0x7f08004a;
-        public static final int editText2=0x7f08004b;
-        public static final int editTextFirstName=0x7f080042;
-        public static final int editTextLastName=0x7f080044;
+        public static final int editText1=0x7f080049;
+        public static final int editText2=0x7f08004a;
+        public static final int editTextFirstName=0x7f080043;
+        public static final int editTextLastName=0x7f080045;
         public static final int editTextName=0x7f08002e;
         public static final int editTextPN=0x7f08002d;
         public static final int editTextPassword=0x7f08003d;
-        public static final int editTextSign=0x7f080043;
-        public static final int editTextUtaEmailId=0x7f080041;
+        public static final int editTextSign=0x7f080044;
+        public static final int editTextUtaEmailId=0x7f080042;
         public static final int editTextUtaID=0x7f080039;
         public static final int google_wallet_classic=0x7f080023;
         public static final int google_wallet_grayscale=0x7f080024;
@@ -635,12 +636,12 @@ containing a value of this type.
         public static final int holo_light=0x7f08000f;
         public static final int hybrid=0x7f08000a;
         public static final int icon_only=0x7f080001;
-        public static final int imageButtonContact1=0x7f08004e;
-        public static final int imageButtonContact2=0x7f08004d;
-        public static final int imageButtonContact3=0x7f08004f;
+        public static final int imageButtonContact1=0x7f08004f;
+        public static final int imageButtonContact2=0x7f08004e;
+        public static final int imageButtonContact3=0x7f080050;
         public static final int imageView1=0x7f08002a;
         public static final int light=0x7f080006;
-        public static final int listViewNotifications=0x7f080046;
+        public static final int listViewNotifications=0x7f080047;
         public static final int logo_only=0x7f08001e;
         public static final int match_parent=0x7f080016;
         public static final int monochrome=0x7f080027;
@@ -649,14 +650,14 @@ containing a value of this type.
         public static final int production=0x7f080010;
         public static final int sandbox=0x7f080011;
         public static final int satellite=0x7f08000c;
-        public static final int section_label=0x7f080056;
+        public static final int section_label=0x7f080057;
         public static final int selectionDetails=0x7f080015;
         public static final int slide=0x7f080029;
-        public static final int splashLogo=0x7f080045;
+        public static final int splashLogo=0x7f080046;
         public static final int standard=0x7f080002;
         public static final int strict_sandbox=0x7f080012;
-        public static final int tab1=0x7f08004c;
-        public static final int tab2=0x7f080047;
+        public static final int tab1=0x7f08004d;
+        public static final int tab2=0x7f080048;
         public static final int terrain=0x7f08000d;
         public static final int test=0x7f080013;
         public static final int textDetailsBody=0x7f080034;
@@ -666,10 +667,10 @@ containing a value of this type.
         public static final int textDetailsTimeStamp=0x7f080032;
         public static final int textDetailsTimeStampHeader=0x7f080031;
         public static final int textView1=0x7f08003f;
-        public static final int textViewContact1=0x7f080053;
-        public static final int textViewContact2=0x7f080054;
-        public static final int textViewContact3=0x7f080055;
-        public static final int textViewHeader=0x7f080052;
+        public static final int textViewContact1=0x7f080054;
+        public static final int textViewContact2=0x7f080055;
+        public static final int textViewContact3=0x7f080056;
+        public static final int textViewHeader=0x7f080053;
         public static final int textViewSafetyFirst=0x7f08003e;
         public static final int wide=0x7f080003;
         public static final int wrap_content=0x7f080017;
@@ -682,15 +683,16 @@ containing a value of this type.
         public static final int activity_details_of_notification=0x7f030001;
         public static final int activity_forgot_password=0x7f030002;
         public static final int activity_login=0x7f030003;
-        public static final int activity_ride_confimation_for_police=0x7f030004;
-        public static final int activity_ride_confirmation=0x7f030005;
-        public static final int activity_sign_up=0x7f030006;
-        public static final int activity_splash=0x7f030007;
-        public static final int activity_tab_action_bar=0x7f030008;
-        public static final int activity_tab_mavalerts=0x7f030009;
-        public static final int activity_tab_pickme=0x7f03000a;
-        public static final int activity_tab_sos=0x7f03000b;
-        public static final int fragment_base=0x7f03000c;
+        public static final int activity_police_home=0x7f030004;
+        public static final int activity_ride_confimation_for_police=0x7f030005;
+        public static final int activity_ride_confirmation=0x7f030006;
+        public static final int activity_sign_up=0x7f030007;
+        public static final int activity_splash=0x7f030008;
+        public static final int activity_tab_action_bar=0x7f030009;
+        public static final int activity_tab_mavalerts=0x7f03000a;
+        public static final int activity_tab_pickme=0x7f03000b;
+        public static final int activity_tab_sos=0x7f03000c;
+        public static final int fragment_base=0x7f03000d;
     }
     public static final class menu {
         public static final int contact=0x7f0b0000;
@@ -698,12 +700,13 @@ containing a value of this type.
         public static final int forgot_password=0x7f0b0002;
         public static final int home=0x7f0b0003;
         public static final int main=0x7f0b0004;
-        public static final int ride_confimation_for_police=0x7f0b0005;
-        public static final int ride_confirmation=0x7f0b0006;
-        public static final int sign_up=0x7f0b0007;
-        public static final int splash=0x7f0b0008;
-        public static final int trial=0x7f0b0009;
-        public static final int trial2=0x7f0b000a;
+        public static final int police_home=0x7f0b0005;
+        public static final int ride_confimation_for_police=0x7f0b0006;
+        public static final int ride_confirmation=0x7f0b0007;
+        public static final int sign_up=0x7f0b0008;
+        public static final int splash=0x7f0b0009;
+        public static final int trial=0x7f0b000a;
+        public static final int trial2=0x7f0b000b;
     }
     public static final class raw {
         public static final int gtm_analytics=0x7f040000;
@@ -870,6 +873,7 @@ containing a value of this type.
         /**  activity_home.xml 
          */
         public static final int title_activity_home=0x7f060036;
+        public static final int title_activity_police_home=0x7f06004c;
         public static final int title_activity_ride_confimation_for_police=0x7f06004b;
         public static final int title_activity_ride_confirmation=0x7f06004a;
         /**  activity_sign_up.xml 

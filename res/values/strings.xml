@@ -45,5 +45,6 @@
     <string name="title_activity_contact">ContactActivity</string>
     <string name="title_activity_ride_confirmation">RideConfirmation</string>
     <string name="title_activity_ride_confimation_for_police">RideConfimationForPolice</string>
+    <string name="title_activity_police_home">PoliceHomeActivity</string>
 
 </resources>

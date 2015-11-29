@@ -26,17 +26,6 @@
         android:scaleType="centerCrop"
         android:src="@drawable/planet" />
 
-    <Button
-        android:id="@+id/Requestride"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/Cancelride"
-        android:layout_alignBottom="@+id/Cancelride"
-        android:layout_alignParentLeft="true"
-        android:text="Request Ride"
-        android:textColor="@color/black"
-        android:textStyle="bold" />
-
     <EditText
         android:id="@+id/editText1"
         android:layout_width="wrap_content"
@@ -67,12 +56,22 @@
         android:textStyle="bold" />
 
     <Button
+        android:id="@+id/Requestride"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Request Ride"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <Button
         android:id="@+id/Cancelride"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="83dp"
+        android:layout_below="@+id/Requestride"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
         android:text="Cancel Ride"
         android:textColor="@color/black"
         android:textStyle="bold" />

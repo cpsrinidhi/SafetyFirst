@@ -139,10 +139,12 @@ public class LoginActivity extends Activity implements OnClickListener {
 
 	public void successfulLogin() {
 		if(isStudent1==1){
+			System.out.println("Meet");
 			i = new Intent("com.example.safetyfirst.TABACTIONBARACTIVITY");
 			System.out.println("coming to succesfullogin");
 			startActivity(i);
 		}else{
+			System.out.println("srinidhi");
 			i = new Intent("com.example.safetyfirst.POLICEHOMEACTIVITY");
 			System.out.println("coming to succesfullogin");
 			startActivity(i);

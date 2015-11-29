@@ -111,8 +111,8 @@ public class SafetyInBackgroundService extends Service {
 					smsManager.sendTextMessage(number3, null,
 							"\n" + str + "\n", null, null);
 					Log.i("SOS", number3);
-					Toast.makeText(getApplicationContext(), "SMS Sent!",
-							Toast.LENGTH_LONG).show();
+//					Toast.makeText(getApplicationContext(), "SMS Sent!",
+//							Toast.LENGTH_LONG).show();
 					Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 					v.vibrate(500);
 				} else {

@@ -30,7 +30,7 @@ public class MyGcmListenerService extends GcmListenerService {
         String alertStr = data.getString("alert");
         String timeStamp = data.getString("time");
         
-        if(!timeStamp.isEmpty()){
+        if(timeStamp!=null){
         	final int notificationId = 1;
         	Intent in = new Intent(this,DetailsOfNotificationActivity.class);
         	
@@ -53,31 +53,48 @@ public class MyGcmListenerService extends GcmListenerService {
             nm.notify(notificationId, mBuilder.build());
         	
         }else{
-        
-        System.out.println("alert string:"+alertStr);
-        
-        
-        final int notificationId = 1;
-        Intent intent = new Intent(this, RideConfirmation.class);
-        
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
-                intent, 0);
-        
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.ic_launcher)
-                .setContentTitle("Safety First")
-                .setContentText(message)
-                .setContentIntent(pendingIntent);
-        
-        
-        
-        
-        NotificationManager nm = (NotificationManager) getApplicationContext()
-              .getSystemService(Context.NOTIFICATION_SERVICE);
-        
-        nm.notify(notificationId, mBuilder.build());
-        // [END_EXCLUDE]
-    }
+        	final int notificationId = 1;
+            if("student".equals(message)){
+            	 Intent intent = new Intent(this, RideConfirmation.class);
+                 
+                 PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
+                         intent, 0);
+                 
+                 NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
+                         .setSmallIcon(R.drawable.ic_launcher)
+                         .setContentTitle("Safety First")
+                         .setContentText("Your ride is on the way.")
+                         .setContentIntent(pendingIntent);
+                 
+                 
+                 
+                 
+                 NotificationManager nm = (NotificationManager) getApplicationContext()
+                       .getSystemService(Context.NOTIFICATION_SERVICE);
+                 
+                 nm.notify(notificationId, mBuilder.build());
+            }else if("police".equals(alertStr)){
+            	System.out.println("police clicked");
+            	 Intent intent = new Intent(this, RideConfimationForPolice.class);
+                 
+                 PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
+                         intent, 0);
+                 
+                 NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
+                         .setSmallIcon(R.drawable.ic_launcher)
+                         .setContentTitle("Safety First")
+                         .setContentText("you need to pick student.")
+                         .setContentIntent(pendingIntent);
+                 
+                 
+                 
+                 
+                 NotificationManager nm = (NotificationManager) getApplicationContext()
+                       .getSystemService(Context.NOTIFICATION_SERVICE);
+                 
+                 nm.notify(notificationId, mBuilder.build());
+            }
+        }
     }
     // [END receive_message]
 

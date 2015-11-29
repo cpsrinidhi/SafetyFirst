@@ -49,6 +49,7 @@ public class SplashActivity extends Activity {
 					String data = "true";
 					if (data.compareTo(restoredText)==0) {
 						System.out.println("google is here");
+						
 						Intent i = new Intent("com.example.safetyfirst.TABACTIONBARACTIVITY");
 						startActivity(i);
 					}else{
